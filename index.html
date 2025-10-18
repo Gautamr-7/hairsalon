@@ -106,7 +106,7 @@
 </head>
 <body class="bg-white">
     <!-- Header -->
-    <header class="fixed top-0 w-full bg-transparent backdrop-blur-sm z-50 transition-all duration-300" id="header">
+    <header class="fixed top-0 w-full bg-black backdrop-blur-sm z-50 transition-all duration-300" id="header">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center animate-slide-in-left">
                 <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center mr-3">
@@ -277,7 +277,7 @@
     </section>
 
     <!-- Services Preview Section -->
-    <section class="py-20 bg-white scroll-section" id="services-preview">
+    <section class="py-20 bg-white scroll-section relative z-10" id="services-preview">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-4">Our Services</h2>
@@ -319,59 +319,27 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-900 text-white scroll-section" id="testimonials">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-light mb-4">Client Testimonials</h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Hear what our clients have to say about their experience at Kendall Salon.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="stagger-item bg-gray-800 p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
-                            <span class="text-black font-bold">S</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Sarah Johnson</h4>
-                            <p class="text-gold text-sm">Regular Client</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">"The best salon experience I've ever had! The stylists are true artists and the atmosphere is so relaxing."</p>
-                </div>
-                
-                <div class="stagger-item bg-gray-800 p-8 rounded-lg" style="transition-delay: 0.1s;">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
-                            <span class="text-black font-bold">M</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Michaela Brown</h4>
-                            <p class="text-gold text-sm">New Client</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">"I'm so impressed with the color work! My hair has never looked better. I'll definitely be coming back."</p>
-                </div>
-                
-                <div class="stagger-item bg-gray-800 p-8 rounded-lg" style="transition-delay: 0.2s;">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
-                            <span class="text-black font-bold">J</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Jessica Williams</h4>
-                            <p class="text-gold text-sm">VIP Client</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic">"Kendall Salon has transformed my hair. The treatments have brought back its natural shine and health."</p>
-                </div>
+    <!-- Gallery Preview Section -->
+    <section class="py-24 bg-gray-800 text-white relative overflow-hidden" id="gallery-preview" style="min-height: 60vh;">
+        <div class="absolute inset-0 parallax-bg" style="background-image: url('https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop'); opacity: 0.5;"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-800 via-transparent to-gray-800 opacity-60"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center h-full flex items-center justify-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-light mb-6">Our Gallery</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                    Explore our portfolio of stunning hairstyles, creative colorwork, and beautiful transformations. Get inspired for your next visit.
+                </p>
+                <a href="gallery.html"
+                    class="inline-flex mx-auto text-white font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    <span class="relative z-10">EXPLORE MORE</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact-section" class="py-20 bg-gray-900 text-ivory scroll-section">
+    <section id="contact-section" class="py-20 bg-gray-900 text-ivory scroll-section relative z-10">
         <div class="container mx-auto px-4">
             <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <div class="p-6 sm:p-10 bg-gray-800 rounded-xl shadow-2xl">
@@ -450,7 +418,7 @@
     <!-- End contact section -->
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16 scroll-section" id="footer">
+    <footer class="bg-gray-900 text-white py-16 scroll-section relative z-10" id="footer">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="stagger-item">
@@ -526,25 +494,6 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-        });
-
-        // Header background change on scroll based on section
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            const aboutSection = document.getElementById('about-section');
-            const testimonialsSection = document.getElementById('testimonials');
-            const scrollY = window.scrollY;
-            const aboutTop = aboutSection.offsetTop;
-            const testimonialsTop = testimonialsSection.offsetTop;
-
-            if (scrollY >= aboutTop - header.offsetHeight && scrollY <= testimonialsTop - header.offsetHeight) {
-            header.classList.add('bg-black');
-            header.classList.add('bg-opacity-50');
-            header.classList.remove('bg-transparent');
-            } else {
-            header.classList.add('bg-transparent');
-            header.classList.remove('bg-black');
-            }
         });
 
         // Carousel functionality

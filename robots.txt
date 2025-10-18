@@ -1,0 +1,15 @@
+# Robots.txt for Kendall Beauty Salon
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any exist in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.kendallsalon.com/sitemap.xml
+
+# Crawl-delay for all bots (optional, helps prevent server overload)
+Crawl-delay: 1
