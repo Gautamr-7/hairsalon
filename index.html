@@ -276,48 +276,296 @@
         </div>
     </section>
 
-    <!-- Services Preview Section -->
-    <section class="py-20 bg-white scroll-section relative z-10" id="services-preview">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-4">Our Services</h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Experience the finest hair care treatments tailored to your unique style and needs.</p>
+    <!-- Product Spotlight Section -->
+<section class="py-20 bg-gradient-to-b from-white to-amber-50/20 scroll-section relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <h2 class="text-4xl md:text-5xl font-light text-center mb-14 tracking-[0.2em] text-gray-900 uppercase">
+      Product Spotlight
+    </h2>
+
+    <div class="flex justify-center mb-12">
+      <div id="categoryTabs"
+        class="inline-flex rounded-full overflow-hidden shadow-md border border-gray-200 bg-white/80 backdrop-blur">
+        <button data-category="all"
+          class="category-btn px-6 py-3 text-sm font-semibold tracking-wider transition-all duration-300 text-gray-900"
+          style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+          TRENDING
+        </button>
+        <button data-category="skin"
+          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+          SKIN
+        </button>
+        <button data-category="hair"
+          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+          HAIR
+        </button>
+        <button data-category="makeup"
+          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+          MAKEUP
+        </button>
+      </div>
+    </div>
+
+    <div class="relative">
+      <button aria-label="Previous products" id="prevBtn"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
+      <div id="productContainer" class="overflow-x-auto scroll-smooth no-scrollbar">
+        <div class="flex gap-8 min-w-max">
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="hair">
+            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
+              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="stagger-item bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Hair Styling</h3>
-                    <p class="text-gray-600 text-center">Professional styling services to create the perfect look for any occasion.</p>
-                </div>
-                
-                <div class="stagger-item bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" style="transition-delay: 0.1s;">
-                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17v4a2 2 0 002 2h4M15 5l2 2"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Hair Coloring</h3>
-                    <p class="text-gray-600 text-center">Expert coloring techniques using premium products for vibrant, lasting results.</p>
-                </div>
-                
-                <div class="stagger-item bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" style="transition-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Hair Treatment</h3>
-                    <p class="text-gray-600 text-center">Nourishing treatments to restore health and vitality to your hair.</p>
-                </div>
+            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="https://source.unsplash.com/random/300x400/?shampoo-bottle,minimalist,luxury-packaging" alt="Revived Scalp Care Shampoo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
             </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Revived Scalp Care Shampoo</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$29.99</span>
+                  <span class="text-sm line-through text-gray-400">$35.00</span>
+                  <span class="text-amber-500">★ 4.8</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="skin">
+            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
+              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
+            </div>
+            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?face-serum,minimalist,luxury-packaging" alt="Advanced Hyaluronic Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Advanced Hyaluronic Serum</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$29.99</span>
+                  <span class="text-sm line-through text-gray-400">$35.00</span>
+                  <span class="text-amber-500">★ 4.8</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="makeup">
+            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">TRENDING</span>
+            </div>
+            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?matte-lipstick,cosmetics,minimalist" alt="Velvet Matte Lipstick" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Velvet Matte Lipstick</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$24.50</span>
+                  <span class="text-amber-500">★ 4.7</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="hair">
+            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">HOT PICK</span>
+            </div>
+            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?hair-brush,wood-brush,minimalist" alt="BC Peptide Repair Rescue" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">BC Peptide Repair Rescue</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$45.00</span>
+                  <span class="text-sm line-through text-gray-400">$52.99</span>
+                  <span class="text-amber-500">★ 4.7</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="skin">
+            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="https://source.unsplash.com/random/300x400/?moisturizer-jar,skincare,minimalist" alt="Aqua Moisture Lotion" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Aqua Moisture Lotion</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$33.99</span>
+                  <span class="text-sm line-through text-gray-400">$40.00</span>
+                  <span class="text-amber-500">★ 4.9</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="makeup">
+            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="https://source.unsplash.com/random/300x400/?nail-polish,shimmer,minimalist" alt="Shimmer Nail Polish Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Shimmer Nail Polish Set</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$19.99</span>
+                  <span class="text-amber-500">★ 4.6</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="hair">
+            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="https://source.unsplash.com/random/300x400/?supplement-bottle,vitamins,minimalist" alt="Hair Repair Vitamins + Plex" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Hair Repair Vitamins + Plex</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$59.99</span>
+                  <span class="text-sm line-through text-gray-400">$70.99</span>
+                  <span class="text-amber-500">★ 5.0</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+            data-category="makeup">
+            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="https://source.unsplash.com/random/300x400/?eyeshadow-palette,makeup,minimalist" alt="Radiant Eyeshadow Palette" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="text-center">
+              {{-- Fixed Height Content Block --}}
+              <div class="h-16 flex flex-col justify-center items-center">
+                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Radiant Eyeshadow Palette</h3>
+                <div class="flex items-center justify-center space-x-2">
+                  <span class="text-xl font-bold text-gray-900">$39.00</span>
+                  <span class="text-amber-500">★ 4.8</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <button aria-label="Next products" id="nextBtn"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ✅ Functional JS -->
+<script>
+  // Carousel scrolling
+  const productContainer = document.getElementById('productContainer');
+  document.getElementById('nextBtn').onclick = () => productContainer.scrollBy({ left: 400, behavior: 'smooth' });
+  document.getElementById('prevBtn').onclick = () => productContainer.scrollBy({ left: -400, behavior: 'smooth' });
+
+  // Category filtering
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const cards = document.querySelectorAll('.product-card');
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.getAttribute('data-category');
+      categoryBtns.forEach(b => b.style.backgroundImage = 'none');
+      btn.style.backgroundImage = "url('assets/metallicGold.jpg')";
+      btn.style.backgroundSize = "cover";
+      btn.style.backgroundPosition = "center";
+
+      cards.forEach(card => {
+        card.style.display = (selected === 'all' || card.dataset.category === selected) ? 'block' : 'none';
+      });
+    });
+  });
+</script>
 
     <!-- Gallery Preview Section -->
     <section class="py-24 bg-white text-gray-900 relative overflow-hidden" id="gallery-preview" style="min-height: 80vh;">
