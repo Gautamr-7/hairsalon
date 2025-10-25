@@ -58,7 +58,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 35rem; 
+            height: 24rem; /* slightly larger so images are more prominent */
             perspective: 1000px; 
             position: relative;
             overflow: hidden; 
@@ -66,47 +66,47 @@
 
         .gallery-card {
             position: absolute;
-            width: 18rem; 
-            height: 25rem; 
+            width: 13rem; /* slightly larger width */
+            height: 18rem; /* slightly larger height */
             background-color: #fff; 
             border-radius: 1rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transition: all 0.5s ease-in-out;
+            transition: transform 0.25s cubic-bezier(0.5,0.1,0.2,1), opacity 0.25s cubic-bezier(0.5,0.1,0.2,1);
             cursor: pointer;
             overflow: hidden;
             transform: translateX(0) scale(1) translateZ(0);
             opacity: 1;
         }
 
-        /* CARD STATES */
+        /* CARD STATES & Swipe Animations */
         .card-active {
             z-index: 10;
-            transform: translateX(0) scale(1.2) translateZ(0); 
+            transform: translateX(0) scale(1.18) translateZ(0); 
             box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.35);
         }
 
         .card-prev {
             z-index: 5;
-            transform: translateX(-15rem) scale(0.9) rotateY(15deg);
-            opacity: 0.7;
+            transform: translateX(-10rem) scale(0.92) rotateY(14deg);
+            opacity: 0.82;
         }
 
         .card-next {
             z-index: 5;
-            transform: translateX(15rem) scale(0.9) rotateY(-15deg);
-            opacity: 0.7;
+            transform: translateX(10rem) scale(0.92) rotateY(-14deg);
+            opacity: 0.82;
         }
 
         .card-prev-far {
             z-index: 1;
-            transform: translateX(-25rem) scale(0.8) rotateY(20deg);
-            opacity: 0.2;
+            transform: translateX(-15rem) scale(0.84) rotateY(15deg);
+            opacity: 0.3;
         }
 
         .card-next-far {
             z-index: 1;
-            transform: translateX(25rem) scale(0.8) rotateY(-20deg);
-            opacity: 0.2;
+            transform: translateX(15rem) scale(0.84) rotateY(-15deg);
+            opacity: 0.3;
         }
         
         .card-hidden {
@@ -115,6 +115,8 @@
             transform: scale(0.5);
             pointer-events: none;
         }
+
+        /* Use CSS transitions on transform/opacity for smooth movement (no keyframes) */
 
         .gallery-card img {
             width: 100%;
@@ -159,8 +161,10 @@
             </nav>
             
             <div class="flex items-center space-x-4 animate-slide-in-right">
-                <button class="bg-gold hover:bg-gold-dark text-black font-semibold px-6 py-2 rounded-sm transition-all duration-300 transform hover:scale-105">
-                    BOOK NOW
+                <button
+                    class="md:block hidden text-black font-semibold px-6 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center justify-center overflow-hidden"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    <span class="relative z-10">BOOK NOW</span>
                 </button>
             </div>
             
@@ -178,8 +182,9 @@
                 <a href="services.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">SERVICES</a>
                 <a href="gallery.html" class="block text-gold py-2 transition-colors duration-300">GALLERY</a>
                 <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">CONTACT</a>
-                <button class="w-full text-left bg-gold hover:bg-gold-dark text-black font-semibold px-4 py-2 rounded-sm transition-all duration-300 mt-2">
-                    BOOK NOW
+        <button class="w-full text-left text-black font-semibold px-4 py-2 rounded-md transition-all duration-300 mt-2 overflow-hidden"
+            style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    <span class="relative z-10">BOOK NOW</span>
                 </button>
             </div>
         </div>
@@ -315,15 +320,26 @@
         const nextBtn = document.getElementById('next-btn');
         const filterBtns = document.querySelectorAll('.filter-btn');
 
-        // Function to determine the class for each card position
-        function getCardClass(index) {
-            const relativeIndex = index - currentActiveIndex;
+        // Utility: proper modulo (handles negative values)
+        function mod(n, m) {
+            return ((n % m) + m) % m;
+        }
 
-            if (relativeIndex === 0) return 'card-active';
-            if (relativeIndex === -1) return 'card-prev';
-            if (relativeIndex === 1) return 'card-next';
-            if (relativeIndex === -2) return 'card-prev-far';
-            if (relativeIndex === 2) return 'card-next-far';
+        // Function to determine the class for each card position (wrap-aware)
+        // getCardClass can compute positions relative to an arbitrary active index
+        function getCardClass(index, activeIndex = currentActiveIndex) {
+            const len = filteredGallery.length;
+            if (len === 0) return 'card-hidden';
+
+            // compute wrapped relative index in range [-floor(len/2), ceil(len/2)]
+            let delta = mod(index - activeIndex, len);
+            if (delta > Math.floor(len / 2)) delta -= len; // pick shortest direction
+
+            if (delta === 0) return 'card-active';
+            if (delta === -1) return 'card-prev';
+            if (delta === 1) return 'card-next';
+            if (delta === -2) return 'card-prev-far';
+            if (delta === 2) return 'card-next-far';
             return 'card-hidden';
         }
 
@@ -347,33 +363,39 @@
                 galleryContainer.appendChild(card);
             });
             
-            prevBtn.disabled = currentActiveIndex === 0;
-            nextBtn.disabled = currentActiveIndex === filteredGallery.length - 1;
-            prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
-            nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+            // With looping enabled, keep buttons active. Clear any disabled state/opacity.
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+            prevBtn.classList.remove('opacity-50');
+            nextBtn.classList.remove('opacity-50');
         }
 
         // Function to handle card movement (swipe)
         function navigate(direction) {
-            let newIndex = currentActiveIndex + direction;
+            const len = filteredGallery.length;
+            if (len === 0) return;
 
-            if (newIndex >= 0 && newIndex < filteredGallery.length) {
-                const cards = document.querySelectorAll('.gallery-card');
-                
-                cards.forEach((card, index) => {
-                    card.classList.remove('card-active', 'card-prev', 'card-next', 'card-prev-far', 'card-next-far', 'card-hidden');
-                    card.classList.add('animate-carousel-swipe');
-                    
-                    setTimeout(() => {
-                        card.classList.remove('animate-carousel-swipe');
-                        const newClass = getCardClass(index);
-                        card.classList.add(newClass);
-                    }, 500); 
-                });
-                
+            const newIndex = mod(currentActiveIndex + direction, len);
+
+            // Update classes on existing DOM cards to animate to their new positions
+            const cards = document.querySelectorAll('.gallery-card');
+            cards.forEach(card => {
+                const idx = Number(card.dataset.index);
+                card.classList.remove('card-active', 'card-prev', 'card-next', 'card-prev-far', 'card-next-far', 'card-hidden');
+                const newClass = getCardClass(idx, newIndex);
+                card.classList.add(newClass);
+            });
+
+            // Force a reflow to ensure transition starts (read offsetHeight)
+            // eslint-disable-next-line no-unused-expressions
+            document.body.offsetHeight;
+
+            // After the transition duration, set the active index and re-render to sync DOM
+            const TRANSITION_MS = 250;
+            setTimeout(() => {
                 currentActiveIndex = newIndex;
-                renderGallery(); 
-            }
+                renderGallery();
+            }, TRANSITION_MS);
         }
         
         // --- Event Listeners ---
