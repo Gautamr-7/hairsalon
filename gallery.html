@@ -53,91 +53,85 @@
         }
     </script>
     <style>
-        /* Custom CSS for the gallery card layout to replicate the reference image */
-        .gallery-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 24rem; /* slightly larger so images are more prominent */
-            perspective: 1000px; 
-            position: relative;
-            overflow: hidden; 
-        }
-
+        /* Gallery Grid Layout Styles */
         .gallery-card {
-            position: absolute;
-            width: 13rem; /* slightly larger width */
-            height: 18rem; /* slightly larger height */
-            background-color: #fff; 
+            position: relative;
+            aspect-ratio: 3/4;
+            background-color: #fff;
             border-radius: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transition: transform 0.25s cubic-bezier(0.5,0.1,0.2,1), opacity 0.25s cubic-bezier(0.5,0.1,0.2,1);
-            cursor: pointer;
             overflow: hidden;
-            transform: translateX(0) scale(1) translateZ(0);
-            opacity: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        /* CARD STATES & Swipe Animations */
-        .card-active {
-            z-index: 10;
-            transform: translateX(0) scale(1.18) translateZ(0); 
-            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.35);
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .card-prev {
-            z-index: 5;
-            transform: translateX(-10rem) scale(0.92) rotateY(14deg);
-            opacity: 0.82;
-        }
-
-        .card-next {
-            z-index: 5;
-            transform: translateX(10rem) scale(0.92) rotateY(-14deg);
-            opacity: 0.82;
-        }
-
-        .card-prev-far {
-            z-index: 1;
-            transform: translateX(-15rem) scale(0.84) rotateY(15deg);
-            opacity: 0.3;
-        }
-
-        .card-next-far {
-            z-index: 1;
-            transform: translateX(15rem) scale(0.84) rotateY(-15deg);
-            opacity: 0.3;
-        }
-        
-        .card-hidden {
-            z-index: 0;
-            opacity: 0;
-            transform: scale(0.5);
-            pointer-events: none;
-        }
-
-        /* Use CSS transitions on transform/opacity for smooth movement (no keyframes) */
 
         .gallery-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 1rem;
+            transition: transform 0.3s ease;
         }
 
-        .card-overlay {
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card .card-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
             display: flex;
-            align-items: flex-end;
-            padding: 1rem;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s ease;
         }
 
-        .card-active .card-overlay {
+        .gallery-card:hover .card-overlay {
             opacity: 1;
+        }
+
+        .gallery-card .card-title {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card .card-category {
+            color: #D4AF37;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .gallery-card:hover .card-title,
+        .gallery-card:hover .card-category {
+            transform: translateY(0);
+        }
+
+        /* Animation for new grid items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-card {
+            animation: fadeInUp 0.6s ease backwards;
         }
     </style>
 </head>
@@ -222,16 +216,8 @@
                 </a>
             </div>
 
-            <div class="gallery-container mx-auto">
-                </div>
-
-            <div class="flex justify-center space-x-6 mt-16 animate-fade-in">
-                <button id="prev-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                </button>
-                <button id="next-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto" id="gallery-grid">
+                <!-- Gallery items will be inserted here by JavaScript -->
             </div>
         </div>
     </section>
@@ -313,98 +299,32 @@
             { id: 8, src: 'https://images.pexels.com/photos/8534071/pexels-photo-8534071.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Beachy Waves Perfection', category: 'haircut' },
         ];
 
-        let currentActiveIndex = 0;
-        let filteredGallery = galleryData;
-        const galleryContainer = document.querySelector('.gallery-container');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
+        const galleryGrid = document.getElementById('gallery-grid');
         const filterBtns = document.querySelectorAll('.filter-btn');
+        let filteredGallery = galleryData;
 
-        // Utility: proper modulo (handles negative values)
-        function mod(n, m) {
-            return ((n % m) + m) % m;
-        }
-
-        // Function to determine the class for each card position (wrap-aware)
-        // getCardClass can compute positions relative to an arbitrary active index
-        function getCardClass(index, activeIndex = currentActiveIndex) {
-            const len = filteredGallery.length;
-            if (len === 0) return 'card-hidden';
-
-            // compute wrapped relative index in range [-floor(len/2), ceil(len/2)]
-            let delta = mod(index - activeIndex, len);
-            if (delta > Math.floor(len / 2)) delta -= len; // pick shortest direction
-
-            if (delta === 0) return 'card-active';
-            if (delta === -1) return 'card-prev';
-            if (delta === 1) return 'card-next';
-            if (delta === -2) return 'card-prev-far';
-            if (delta === 2) return 'card-next-far';
-            return 'card-hidden';
-        }
-
-        // Function to render the cards in their positions
+        // Function to render gallery items in a grid
         function renderGallery() {
-            galleryContainer.innerHTML = ''; 
+            galleryGrid.innerHTML = '';
 
             filteredGallery.forEach((item, index) => {
                 const card = document.createElement('div');
-                card.classList.add('gallery-card', getCardClass(index));
-                card.dataset.index = index;
-                card.style.backgroundImage = `url('${item.src}')`;
+                card.classList.add('gallery-card');
+                card.style.animationDelay = `${index * 0.1}s`;
 
-                const overlay = document.createElement('div');
-                overlay.classList.add('card-overlay');
-                overlay.innerHTML = `
-                    <p class="text-xl font-bold">${item.title}</p>
+                card.innerHTML = `
+                    <img src="${item.src}" alt="${item.title}">
+                    <div class="card-overlay">
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-category">${item.category}</p>
+                    </div>
                 `;
-                
-                card.appendChild(overlay);
-                galleryContainer.appendChild(card);
+
+                galleryGrid.appendChild(card);
             });
-            
-            // With looping enabled, keep buttons active. Clear any disabled state/opacity.
-            prevBtn.disabled = false;
-            nextBtn.disabled = false;
-            prevBtn.classList.remove('opacity-50');
-            nextBtn.classList.remove('opacity-50');
         }
 
-        // Function to handle card movement (swipe)
-        function navigate(direction) {
-            const len = filteredGallery.length;
-            if (len === 0) return;
-
-            const newIndex = mod(currentActiveIndex + direction, len);
-
-            // Update classes on existing DOM cards to animate to their new positions
-            const cards = document.querySelectorAll('.gallery-card');
-            cards.forEach(card => {
-                const idx = Number(card.dataset.index);
-                card.classList.remove('card-active', 'card-prev', 'card-next', 'card-prev-far', 'card-next-far', 'card-hidden');
-                const newClass = getCardClass(idx, newIndex);
-                card.classList.add(newClass);
-            });
-
-            // Force a reflow to ensure transition starts (read offsetHeight)
-            // eslint-disable-next-line no-unused-expressions
-            document.body.offsetHeight;
-
-            // After the transition duration, set the active index and re-render to sync DOM
-            const TRANSITION_MS = 250;
-            setTimeout(() => {
-                currentActiveIndex = newIndex;
-                renderGallery();
-            }, TRANSITION_MS);
-        }
-        
-        // --- Event Listeners ---
-        
-        // Navigation buttons
-        prevBtn.addEventListener('click', () => navigate(-1));
-        nextBtn.addEventListener('click', () => navigate(1));
-
-        // Filter buttons
+        // Filter buttons event listeners
         filterBtns.forEach(button => {
             button.addEventListener('click', (e) => {
                 const filter = e.target.dataset.filter;
@@ -417,13 +337,13 @@
                 e.target.classList.remove('bg-gray-200', 'text-gray-800'); 
                 e.target.classList.add('active-filter', 'bg-gold', 'text-black'); 
 
+                // Filter the gallery
                 if (filter === 'all') {
                     filteredGallery = galleryData;
                 } else {
                     filteredGallery = galleryData.filter(item => item.category === filter);
                 }
 
-                currentActiveIndex = 0;
                 renderGallery();
             });
         });
@@ -433,22 +353,19 @@
             renderGallery();
         });
 
-        // Sticky Header Logic (Ensuring dark text on white background when scrolled)
+        // Sticky Header Logic
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             const gallerySection = document.getElementById('gallery-section');
             const scrollY = window.scrollY;
             const galleryTop = gallerySection.offsetTop;
             
-            // Elements that need color toggling
             const textElements = document.querySelectorAll('#header h1, #header nav a, #mobile-menu-btn');
 
             if (scrollY >= galleryTop - header.offsetHeight) {
-                // Scrolled: Set header background to white/light
                 header.classList.add('bg-white', 'bg-opacity-95');
                 header.classList.remove('bg-transparent', 'backdrop-blur-sm');
 
-                // Change text to dark for contrast on white header
                 textElements.forEach(el => {
                     if (!el.classList.contains('text-gold')) {
                         el.classList.remove('text-white', 'text-gray-700');
@@ -456,11 +373,9 @@
                     }
                 });
             } else {
-                // At Top: Set header background to transparent
                 header.classList.add('bg-transparent', 'backdrop-blur-sm');
                 header.classList.remove('bg-white', 'bg-opacity-95');
 
-                // Change text back to dark (since the gallery content starts immediately)
                 textElements.forEach(el => {
                     if (!el.classList.contains('text-gold')) {
                         el.classList.remove('text-gray-900', 'text-white');

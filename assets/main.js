@@ -8,7 +8,100 @@ if (mobileMenuBtn && mobileMenu) {
     });
 }
 
-// Carousel functionality
+// Gallery carousel functionality
+function initializeGalleryCarousel() {
+    const galleryData = [
+        { id: 1, src: 'https://images.pexels.com/photos/8534065/pexels-photo-8534065.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Flawless Balayage & Blowout', category: 'color' },
+        { id: 2, src: 'https://images.pexels.com/photos/8431872/pexels-photo-8431872.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Elegant Wedding Updo', category: 'bridal' },
+        { id: 3, src: 'https://images.pexels.com/photos/8534069/pexels-photo-8534069.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Classic Bob with Modern Twist', category: 'haircut' },
+        { id: 4, src: 'https://images.pexels.com/photos/8534077/pexels-photo-8534077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Dramatic Smokey Eye Makeup', category: 'makeup' },
+    ];
+
+    let currentActiveIndex = 0;
+    const galleryContainer = document.querySelector('.gallery-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (!galleryContainer || !prevBtn || !nextBtn) return;
+
+    // Utility: proper modulo (handles negative values)
+    function mod(n, m) {
+        return ((n % m) + m) % m;
+    }
+
+    // Function to determine the class for each card position (wrap-aware)
+    function getCardClass(index, activeIndex = currentActiveIndex) {
+        const len = galleryData.length;
+        if (len === 0) return 'card-hidden';
+
+        let delta = mod(index - activeIndex, len);
+        if (delta > Math.floor(len / 2)) delta -= len;
+
+        if (delta === 0) return 'card-active';
+        if (delta === -1) return 'card-prev';
+        if (delta === 1) return 'card-next';
+        if (delta === -2) return 'card-prev-far';
+        if (delta === 2) return 'card-next-far';
+        return 'card-hidden';
+    }
+
+    // Function to render the cards in their positions
+    function renderGallery() {
+        galleryContainer.innerHTML = ''; 
+
+        galleryData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.classList.add('gallery-card', getCardClass(index));
+            card.dataset.index = index;
+
+            card.innerHTML = `
+                <img src="${item.src}" alt="${item.title}">
+                <div class="card-overlay">
+                    <p class="text-xl font-bold">${item.title}</p>
+                </div>
+            `;
+            
+            galleryContainer.appendChild(card);
+        });
+    }
+
+    // Function to handle card movement (swipe)
+    function navigate(direction) {
+        const len = galleryData.length;
+        if (len === 0) return;
+
+        const newIndex = mod(currentActiveIndex + direction, len);
+
+        // Update classes on existing DOM cards to animate to their new positions
+        const cards = document.querySelectorAll('.gallery-card');
+        cards.forEach(card => {
+            const idx = Number(card.dataset.index);
+            card.classList.remove('card-active', 'card-prev', 'card-next', 'card-prev-far', 'card-next-far', 'card-hidden');
+            const newClass = getCardClass(idx, newIndex);
+            card.classList.add(newClass);
+        });
+
+        // Force a reflow to ensure transition starts
+        document.body.offsetHeight;
+
+        setTimeout(() => {
+            currentActiveIndex = newIndex;
+            renderGallery();
+        }, 250);
+    }
+
+    // Event Listeners
+    prevBtn.addEventListener('click', () => navigate(-1));
+    nextBtn.addEventListener('click', () => navigate(1));
+
+    // Initialize gallery
+    renderGallery();
+
+    // Auto-advance carousel every 5 seconds
+    setInterval(() => navigate(1), 5000);
+}
+
+// Hero carousel functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.carousel-dot');
@@ -16,19 +109,16 @@ const totalSlides = slides.length;
 
 if (slides.length > 0 && dots.length > 0) {
     function showSlide(index) {
-        // Hide all slides
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
             slide.style.opacity = '0';
             slide.style.transform = i < index ? 'translateX(-100%)' : i > index ? 'translateX(100%)' : 'translateX(0)';
         });
 
-        // Show current slide
         slides[index].classList.add('active');
         slides[index].style.opacity = '1';
         slides[index].style.transform = 'translateX(0)';
 
-        // Update dots
         dots.forEach((dot, i) => {
             if (i === index) {
                 dot.classList.add('active');
@@ -54,7 +144,7 @@ if (slides.length > 0 && dots.length > 0) {
         showSlide(prev);
     }
 
-    // Carousel navigation event listeners
+    // Hero carousel navigation event listeners
     const carouselNext = document.querySelector('.carousel-next');
     const carouselPrev = document.querySelector('.carousel-prev');
     
@@ -206,4 +296,9 @@ const servicesObserver = new IntersectionObserver((entries) => {
 // Observe elements for scroll animations on services page
 document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right, .animate-slide-up').forEach(el => {
     servicesObserver.observe(el);
+});
+
+// Initialize all carousels and features when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGalleryCarousel();
 });
