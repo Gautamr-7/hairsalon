@@ -320,23 +320,125 @@
     </section>
 
     <!-- Gallery Preview Section -->
-    <section class="py-24 bg-gray-800 text-white relative overflow-hidden" id="gallery-preview" style="min-height: 60vh;">
-        <div class="absolute inset-0 parallax-bg" style="background-image: url('https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop'); opacity: 0.5;"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-800 via-transparent to-gray-800 opacity-60"></div>
-        <div class="container mx-auto px-4 relative z-10 text-center h-full flex items-center justify-center">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-light mb-6">Our Gallery</h2>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                    Explore our portfolio of stunning hairstyles, creative colorwork, and beautiful transformations. Get inspired for your next visit.
+    <section class="py-24 bg-white text-gray-900 relative overflow-hidden" id="gallery-preview" style="min-height: 80vh;">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <p class="text-gold uppercase tracking-widest text-base font-medium">Our Gallery</p>
+                <h2 class="text-4xl md:text-5xl font-light mt-2 mb-4">Masterpiece Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Experience our finest transformations through our curated collection of stunning styles and elegant looks.
                 </p>
-                <a href="gallery.html"
-                    class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
-                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                    <span class="relative z-10">EXPLORE MORE</span>
+            </div>
+
+            <!-- Gallery Carousel Container -->
+            <div class="gallery-container mx-auto mb-12"></div>
+
+            <div class="flex justify-center space-x-6 mb-12">
+                <button id="prev-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </button>
+                <button id="next-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </div>
+
+            <div class="text-center">
+                <a href="gallery.html" class="inline-flex items-center px-8 py-3 border-2 border-gold text-gray-900 hover:text-black hover:bg-gold transition-all duration-300 rounded-md transform hover:scale-105">
+                    Explore Full Gallery
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
                 </a>
             </div>
         </div>
     </section>
+
+    <style>
+        /* Gallery Carousel Styles */
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 24rem;
+            perspective: 1000px; 
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .gallery-card {
+            position: absolute;
+            width: 13rem;
+            height: 18rem;
+            background-color: #fff; 
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s cubic-bezier(0.5,0.1,0.2,1), opacity 0.25s cubic-bezier(0.5,0.1,0.2,1);
+            cursor: pointer;
+            overflow: hidden;
+            transform: translateX(0) scale(1) translateZ(0);
+            opacity: 1;
+        }
+
+        /* CARD STATES & Swipe Animations */
+        .card-active {
+            z-index: 10;
+            transform: translateX(0) scale(1.18) translateZ(0); 
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.35);
+        }
+
+        .card-prev {
+            z-index: 5;
+            transform: translateX(-10rem) scale(0.92) rotateY(14deg);
+            opacity: 0.82;
+        }
+
+        .card-next {
+            z-index: 5;
+            transform: translateX(10rem) scale(0.92) rotateY(-14deg);
+            opacity: 0.82;
+        }
+
+        .card-prev-far {
+            z-index: 1;
+            transform: translateX(-15rem) scale(0.84) rotateY(15deg);
+            opacity: 0.3;
+        }
+
+        .card-next-far {
+            z-index: 1;
+            transform: translateX(15rem) scale(0.84) rotateY(-15deg);
+            opacity: 0.3;
+        }
+        
+        .card-hidden {
+            z-index: 0;
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card-active .card-overlay {
+            opacity: 1;
+        }
+    </style>
 
     <!-- Contact Section -->
     <section id="contact-section" class="py-20 bg-gray-900 text-ivory scroll-section relative z-10">
