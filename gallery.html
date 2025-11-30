@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Kendall Beauty Salon</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -285,18 +286,27 @@
             </div>
         </div>
     </footer>
+        <!-- Fixed WhatsApp & Email Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-4 z-50">
+      <a href="https://wa.me/15551234567" target="_blank" aria-label="WhatsApp" class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition-all duration-300" style="box-shadow: 0 4px 24px rgba(34,197,94,0.25);">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+      </a>
+      <a href="mailto:info@kendall.com" aria-label="Email" class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-gold hover:bg-gold-dark transition-all duration-300" style="box-shadow: 0 4px 24px rgba(212,175,55,0.18);">
+        <i class="fas fa-envelope text-white text-2xl"></i>
+      </a>
+    </div>
 
     <script>
         // Data for the gallery images
         const galleryData = [
-            { id: 1, src: 'https://images.pexels.com/photos/8534065/pexels-photo-8534065.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Flawless Balayage & Blowout', category: 'color' },
-            { id: 2, src: 'https://images.pexels.com/photos/8431872/pexels-photo-8431872.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Elegant Wedding Updo', category: 'bridal' },
-            { id: 3, src: 'https://images.pexels.com/photos/8534069/pexels-photo-8534069.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Classic Bob with Modern Twist', category: 'haircut' },
-            { id: 4, src: 'https://images.pexels.com/photos/8534077/pexels-photo-8534077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Dramatic Smokey Eye Makeup', category: 'makeup' },
-            { id: 5, src: 'https://images.pexels.com/photos/8534067/pexels-photo-8534067.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Vibrant Copper Color Melt', category: 'color' },
-            { id: 6, src: 'https://images.pexels.com/photos/8534068/pexels-photo-8534068.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Textured Mens Haircut', category: 'haircut' },
-            { id: 7, src: 'https://images.pexels.com/photos/8534070/pexels-photo-8534070.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Soft Glam Bridal Look', category: 'bridal' },
-            { id: 8, src: 'https://images.pexels.com/photos/8534071/pexels-photo-8534071.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop', title: 'Beachy Waves Perfection', category: 'haircut' },
+            { id: 1, src: './assets/Images/Gallery/img1.jpg', title: 'Flawless Balayage & Blowout', category: 'color' },
+            { id: 2, src: './assets/Images/Gallery/img2.jpg', title: 'Elegant Wedding Updo', category: 'bridal' },
+            { id: 3, src: './assets/Images/Gallery/img3.jpg', title: 'Classic Bob with Modern Twist', category: 'haircut' },
+            { id: 4, src: './assets/Images/Gallery/img4.jpg', title: 'Dramatic Smokey Eye Makeup', category: 'makeup' },
+            { id: 5, src: './assets/Images/Gallery/img5.jpg', title: 'Vibrant Copper Color Melt', category: 'color' },
+            { id: 6, src: './assets/Images/Gallery/img6.jpg', title: 'Textured Mens Haircut', category: 'haircut' },
+            { id: 7, src: './assets/Images/Gallery/img7.jpg', title: 'Soft Glam Bridal Look', category: 'bridal' },
+            { id: 8, src: './assets/Images/Gallery/img8.jpg', title: 'Beachy Waves Perfection', category: 'haircut' },
         ];
 
         const galleryGrid = document.getElementById('gallery-grid');
