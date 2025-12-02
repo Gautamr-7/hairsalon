@@ -1,843 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kendall - Beautiful Hair Salon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        'gold-light': '#F4E4A6',
-                        'gold-dark': '#B8860B',
-                        ivory: '#F8EFE2'
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 1s ease-in-out',
-                        'slide-in-left': 'slideInLeft 1s ease-out',
-                        'slide-in-right': 'slideInRight 1s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'scale-in': 'scaleIn 0.6s ease-out forwards'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        slideInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' }
-                        },
-                        slideInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(50px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        scaleIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.9)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' }
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEBRON - Beautiful Hair Salon</title>
+  <link rel="icon" href="./assets/Images/Other/logo.jpg" type="image/jpeg">
+  <link rel="apple-touch-icon" href="./assets/Images/Other/logo.jpg">
+  <meta name="theme-color" content="#D4AF37">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            'gold-light': '#F4E4A6',
+            'gold-dark': '#B8860B',
+            ivory: '#F8EFE2'
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-in-out',
+            'slide-in-left': 'slideInLeft 1s ease-out',
+            'slide-in-right': 'slideInRight 1s ease-out',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s infinite',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'scale-in': 'scaleIn 0.6s ease-out forwards'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideInLeft: {
+              '0%': { opacity: '0', transform: 'translateX(-50px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            slideInRight: {
+              '0%': { opacity: '0', transform: 'translateX(50px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '100%': { opacity: '1', transform: 'scale(1)' }
             }
+          }
         }
-    </script>
-    <style>
-        /* Additional custom styles for scroll animations */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        .scroll-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .scroll-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .stagger-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .stagger-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Enhanced hero section with parallax effect */
-        .hero-parallax {
-            transform: translateZ(0);
-            will-change: transform;
-        }
-        
-        /* About section overlay effect */
-        .about-overlay {
-            position: relative;
-            z-index: 10;
-            background: white;
-            margin-top: -100px;
-            padding-top: 120px;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    /* Additional custom styles */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .parallax-bg {
+      background-attachment: scroll;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      will-change: transform;
+    }
+
+    @media (min-width: 1024px) {
+      .parallax-bg {
+        background-attachment: fixed;
+      }
+    }
+
+    .scroll-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .scroll-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Enhanced hero section */
+    .hero-parallax {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* About section overlay effect */
+    .about-overlay {
+      position: relative;
+      z-index: 10;
+      background: white;
+      margin-top: -100px;
+      padding-top: 120px;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hardware acceleration */
+    .group,
+    .gallery-item,
+    .product-card,
+    .service-card {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  </style>
 </head>
+
 <body class="bg-white">
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-black backdrop-blur-sm z-50 transition-all duration-300" id="header">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center animate-slide-in-left">
-                <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center mr-3">
-                    <span class="text-black font-bold text-xl">K</span>
-                </div>
-                <h1 class="text-white text-2xl font-bold">KENDALL</h1>
-            </div>
-            
-            <nav class="hidden md:flex space-x-8 animate-fade-in">
-                <a href="index.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">HOME</a>
-                <a href="#about-section" class="text-white hover:text-gold transition-colors duration-300 font-medium">ABOUT</a>
-                <a href="services.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">SERVICES</a>
-                <a href="gallery.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">GALLERY</a>
-                <a href="#contact-section" class="text-white hover:text-gold transition-colors duration-300 font-medium">CONTACT</a>
-            </nav>
-            
-            <div class="flex items-center space-x-4 animate-slide-in-right">
-                <button
-                    class="md:block hidden text-black font-semibold px-6 py-2 rounded-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                    <span class="relative z-10">BOOK NOW</span>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white" id="mobile-menu-btn">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-black backdrop-blur-sm z-50 transition-all duration-300" id="header">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center animate-slide-in-left">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3">
+          <img src="./assets/Images/Other/logo.jpg" alt="logo" class="w-8 h-8 object-cover rounded-full">
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden bg-black bg-opacity-95 hidden" id="mobile-menu">
-            <div class="px-4 py-2 space-y-2">
-                 <a href="index.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">HOME</a>
-                 <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">ABOUT</a>
-                 <a href="services.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">SERVICES</a>
-                 <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">GALLERY</a>
-                 <a href="#contact-section" class="block text-white hover:text-gold py-2 transition-colors duration-300">CONTACT</a>
-                 <button class="w-full text-left bg-gold hover:bg-gold-dark text-black font-semibold px-4 py-2 rounded-sm transition-all duration-300 mt-2">
-                     BOOK NOW
-                 </button>
-             </div>
-         </div>
-    </header>
+        <h1 class="text-white text-2xl font-bold">HEBRON</h1>
+      </div>
 
-    <!-- Hero Carousel Section -->
-    <section class="min-h-screen relative overflow-hidden hero-parallax" id="hero-carousel">
-        <!-- Carousel Slides -->
-        <div class="carousel-container relative h-screen">
-            <!-- Slide 1 -->
-            <div class="carousel-slide active flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out">
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70 z-10"></div>
-                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg" style="background-image: url('./assets/Images/Carousal/img1.jpg');">
-                </div>
-                
-                <div class="relative z-20 text-center text-white px-4 animate-fade-in">
-                    <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold animate-slide-in-left">CONSECTETUR ADIPISCING</p>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 animate-fade-in" style="animation-delay: 0.2s;">Beautiful Hair</h1>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-slide-in-right" style="animation-delay: 0.4s;">
-                        Experience the art of beauty with professional hair styling and<br>
-                        luxurious treatments that bring out your natural radiance.
-                    </p>
-                    <button
-                        class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 animate-fade-in items-center justify-center"
-                        style="animation-delay: 0.6s; background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                        <span class="relative z-10">BOOK APPOINTMENT</span>
-                    </button>
-                </div>
-            </div>
+      <nav class="hidden md:flex space-x-8 animate-fade-in">
+        <a href="index.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">HOME</a>
+        <a href="#about-section" class="text-white hover:text-gold transition-colors duration-300 font-medium">ABOUT</a>
+        <a href="#services-section"
+          class="text-white hover:text-gold transition-colors duration-300 font-medium">SERVICES</a>
+        <a href="gallery.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">GALLERY</a>
+        <a href="#contact-section"
+          class="text-white hover:text-gold transition-colors duration-300 font-medium">CONTACT</a>
+      </nav>
 
-            <!-- Slide 2 -->
-            <div class="carousel-slide flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform translate-x-full">
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70 z-10"></div>
-                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg" style="background-image: url('./assets/Images/Carousal/img2.jpg');">
-                </div>
-                
-                <div class="relative z-20 text-center text-white px-4">
-                    <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold">PROFESSIONAL STYLING</p>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6">Expert Care</h1>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-                        Transform your look with our expert stylists and<br>
-                        premium hair care treatments tailored just for you.
-                    </p>
-                    <button
-                        class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
-                        style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                        <span class="relative z-10">VIEW SERVICES</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-slide flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform translate-x-full">
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-70 z-10"></div>
-                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg" style="background-image: url('./assets/Images/Carousal/img3.jpg');">
-                </div>
-                
-                <div class="relative z-20 text-center text-white px-4">
-                    <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold">LUXURY EXPERIENCE</p>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6">Premium Salon</h1>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-                        Indulge in luxury with our premium salon experience<br>
-                        featuring the latest trends and exceptional service.
-                    </p>
-                    <button
-                        class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
-                        style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                        <span class="relative z-10">CONTACT US</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Carousel Navigation -->
-        <div class="absolute z-30 bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-            <button class="carousel-dot active w-3 h-3 bg-gold rounded-full transition-all duration-300 hover:scale-110" data-slide="0"></button>
-            <button class="carousel-dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gold" data-slide="1"></button>
-            <button class="carousel-dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gold" data-slide="2"></button>
-        </div>
-
-        <!-- Carousel Arrows - Hidden -->
-        <button class="carousel-prev absolute z-30 left-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-        </button>
-        <button class="carousel-next absolute z-30 right-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-        </button>
-    </section>
-
-    <!-- Story Section -->
-    <section class="py-20 bg-gray-50 about-overlay scroll-section" id="about-section">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="stagger-item">
-                    <div class="relative">
-                        <img src="./assets/Images/Story/img4.jpg" 
-                             alt="Professional hair styling tools" 
-                             class="rounded-lg shadow-2xl w-full h-96 object-cover">
-                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gold rounded-full opacity-20 animate-pulse-slow"></div>
-                    </div>
-                </div>
-                
-                <div class="stagger-item" style="transition-delay: 0.2s;">
-                    <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Story About Beauty</h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-                        doloremque laudantium, totam rem aperiam inventore veritatis.
-                    </p>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Quis autem vel 
-                        eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-                    </p>
-                    <button
-                        class="text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-                        style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                        <span class="relative z-10">READ MORE</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Spotlight Section -->
-<section class="py-20 bg-gradient-to-b from-white to-amber-50/20 scroll-section relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <h2 class="text-4xl md:text-5xl font-light text-center mb-14 tracking-[0.2em] text-gray-900 uppercase">
-      Product Spotlight
-    </h2>
-
-    <div class="flex justify-center mb-12">
-      <div id="categoryTabs"
-        class="inline-flex rounded-full overflow-hidden shadow-md border border-gray-200 bg-white/80 backdrop-blur">
-        <button data-category="all"
-          class="category-btn px-6 py-3 text-sm font-semibold tracking-wider transition-all duration-300 text-gray-900"
+      <div class="flex items-center space-x-4 animate-slide-in-right">
+        <a href="https://wa.me/+919895223774?text=Hey%20I%20would%20like%20to%20book%20an%20appointment" target="_blank"
+          class="md:block hidden text-black font-semibold px-6 py-2 rounded-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
           style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-          TRENDING
-        </button>
-        <button data-category="skin"
-          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-          SKIN
-        </button>
-        <button data-category="hair"
-          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-          HAIR
-        </button>
-        <button data-category="makeup"
-          class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-          MAKEUP
-        </button>
+          <span class="relative z-10">BOOK NOW</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white" id="mobile-menu-btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden bg-black bg-opacity-95 hidden" id="mobile-menu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="index.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">HOME</a>
+        <a href="#about-section" class="block text-white hover:text-gold py-2 transition-colors duration-300">ABOUT</a>
+        <a href="#services-section"
+          class="block text-white hover:text-gold py-2 transition-colors duration-300">SERVICES</a>
+        <a href="gallery.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">GALLERY</a>
+        <a href="#contact-section"
+          class="block text-white hover:text-gold py-2 transition-colors duration-300">CONTACT</a>
+        <a href="https://wa.me/+919895223774?text=Hey%20I%20would%20like%20to%20book%20an%20appointment" target="_blank"
+          class="block w-full text-left bg-gold hover:bg-gold-dark text-black font-semibold px-4 py-2 rounded-sm transition-all duration-300 mt-2">
+          BOOK NOW
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Carousel Section -->
+  <section class="min-h-screen relative overflow-hidden hero-parallax" id="hero-carousel">
+    <!-- Carousel Slides -->
+    <div class="carousel-container relative h-screen">
+      <!-- Slide 1 -->
+      <div
+        class="carousel-slide active flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out">
+        <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg"
+          style="background-image: url('./assets/Images/Carousal/img1.jpg');">
+        </div>
+
+        <div class="relative z-20 text-center text-white px-4 animate-fade-in">
+          <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold animate-slide-in-left"
+            style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">CONSECTETUR ADIPISCING</p>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6 animate-fade-in"
+            style="animation-delay: 0.2s; text-shadow: 3px 3px 12px rgba(0,0,0,0.9);">Beautiful Hair</h1>
+          <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed animate-slide-in-right"
+            style="animation-delay: 0.4s; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+            Experience the art of beauty with professional hair styling and<br>
+            luxurious treatments that bring out your natural radiance.
+          </p>
+          <button
+            onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey I would like to book an appointment'), '_blank');"
+            class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 animate-fade-in items-center justify-center"
+            style="animation-delay: 0.6s; background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+            <span class="relative z-10">BOOK APPOINTMENT</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div
+        class="carousel-slide flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform translate-x-full">
+        <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg"
+          style="background-image: url('./assets/Images/Carousal/img2.jpg');">
+        </div>
+
+        <div class="relative z-20 text-center text-white px-4">
+          <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold"
+            style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">PROFESSIONAL STYLING</p>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6"
+            style="text-shadow: 3px 3px 12px rgba(0,0,0,0.9);">Expert Care</h1>
+          <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+            style="text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+            Transform your look with our expert stylists and<br>
+            premium hair care treatments tailored just for you.
+          </p>
+          <button onclick="window.location.href='services.html';"
+            class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
+            style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+            <span class="relative z-10">VIEW SERVICES</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div
+        class="carousel-slide flex items-center justify-center absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform translate-x-full">
+        <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg"
+          style="background-image: url('./assets/Images/Carousal/img3.jpg');">
+        </div>
+
+        <div class="relative z-20 text-center text-white px-4">
+          <p class="text-sm md:text-base uppercase tracking-widest mb-4 text-gold"
+            style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">LUXURY EXPERIENCE</p>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-6"
+            style="text-shadow: 3px 3px 12px rgba(0,0,0,0.9);">Premium Salon</h1>
+          <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
+            style="text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">
+            Indulge in luxury with our premium salon experience<br>
+            featuring the latest trends and exceptional service.
+          </p>
+          <button onclick="window.location.href='#contact-section';"
+            class="inline-flex mx-auto text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 items-center justify-center"
+            style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+            <span class="relative z-10">CONTACT US</span>
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="relative">
-      <button aria-label="Previous products" id="prevBtn"
-        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
+    <!-- Carousel Navigation -->
+    <div class="absolute z-30 bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      <button class="carousel-dot active w-3 h-3 bg-gold rounded-full transition-all duration-300 hover:scale-110"
+        data-slide="0"></button>
+      <button
+        class="carousel-dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gold"
+        data-slide="1"></button>
+      <button
+        class="carousel-dot w-3 h-3 bg-white bg-opacity-50 rounded-full transition-all duration-300 hover:scale-110 hover:bg-gold"
+        data-slide="2"></button>
+    </div>
 
-      <div id="productContainer" class="overflow-x-auto scroll-smooth no-scrollbar">
-        <div class="flex gap-8 min-w-max">
+    <!-- Carousel Arrows - Hidden -->
+    <button
+      class="carousel-prev absolute z-30 left-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button
+      class="carousel-next absolute z-30 right-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </section>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="hair">
-            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
-              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
-              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
-            </div>
-            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
-              <img src="./assets/Images/Products/pdt1.jpg" alt="Revived Scalp Care Shampoo" class="w-80 h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Revived Scalp Care Shampoo</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$29.99</span>
-                  <span class="text-sm line-through text-gray-400">$35.00</span>
-                  <span class="text-amber-500">★ 4.8</span>
-                </div>
-              </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
-            </div>
+  <!-- Story Section -->
+  <section class="py-20 bg-gray-50 about-overlay scroll-section" id="about-section">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="stagger-item">
+          <div class="relative">
+            <img src="./assets/Images/Story/img4.jpg" alt="Professional hair styling tools" loading="lazy"
+              class="rounded-lg shadow-2xl w-full h-96 object-cover">
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gold rounded-full opacity-20 animate-pulse-slow"></div>
           </div>
+        </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="skin">
-            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
-              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
-              <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
-            </div>
-            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
-                <img src="./assets/Images/Products/pdt2.jpg" alt="Advanced Hyaluronic Serum" class="w-80 h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Advanced Hyaluronic Serum</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$29.99</span>
-                  <span class="text-sm line-through text-gray-400">$35.00</span>
-                  <span class="text-amber-500">★ 4.8</span>
+        <div class="stagger-item" style="transition-delay: 0.2s;">
+          <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6">Story About Beauty</h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            What began as a small neighborhood salon has blossomed into a sanctuary of transformation.
+            For over a decade, HEBRON has been more than just a place for haircuts—it's where confidence
+            is restored, self-expression flourishes, and every client becomes part of our extended family.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+            Our passionate team of artists believes that beauty is personal, not prescriptive. We listen
+            to your vision, understand your lifestyle, and craft looks that enhance your natural radiance.
+            From classic elegance to bold innovation, every snip, color, and style tells your unique story.
+            Step into our chair and discover the transformative power of expert care and genuine connection.
+          </p>
+          <button
+            onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey I would like to book an appointment'), '_blank');"
+            class="text-black font-semibold px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+            style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+            <span class="relative z-10">BOOK NOW</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Spotlight Section -->
+  <section class="py-20 bg-gradient-to-b from-white to-amber-50/20 scroll-section relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <h2 class="text-4xl md:text-5xl font-light text-center mb-14 tracking-[0.2em] text-gray-900 uppercase">
+        Product Spotlight
+      </h2>
+
+      <div class="flex justify-center mb-12">
+        <div id="categoryTabs"
+          class="inline-flex rounded-full overflow-hidden shadow-md border border-gray-200 bg-white/80 backdrop-blur">
+          <button data-category="all"
+            class="category-btn px-6 py-3 text-sm font-semibold tracking-wider transition-all duration-300 text-gray-900"
+            style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+            TRENDING
+          </button>
+          <button data-category="skin"
+            class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+            SKIN
+          </button>
+          <button data-category="hair"
+            class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+            HAIR
+          </button>
+          <button data-category="makeup"
+            class="category-btn px-6 py-3 text-sm font-medium tracking-wider transition-all duration-300 bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+            MAKEUP
+          </button>
+        </div>
+      </div>
+
+      <div class="relative">
+        <button aria-label="Previous products" id="prevBtn"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <div id="productContainer" class="overflow-x-auto scroll-smooth no-scrollbar">
+          <div class="flex gap-8 min-w-max">
+
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="hair">
+              <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                <span
+                  class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
+                <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
+              </div>
+              <div
+                class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
+                <img src="./assets/Images/Products/pdt1.jpg" alt="Revived Scalp Care Shampoo" loading="lazy"
+                  class="w-80 h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Revived Scalp Care Shampoo</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$29.99</span>
+                    <span class="text-sm line-through text-gray-400">$35.00</span>
+                    <span class="text-amber-500">★ 4.8</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="makeup">
-            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
-              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">TRENDING</span>
-            </div>
-            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
-                <img src="./assets/Images/Products/pdt3.jpg" alt="Velvet Matte Lipstick" class="w-80 h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Velvet Matte Lipstick</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$24.50</span>
-                  <span class="text-amber-500">★ 4.7</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="skin">
+              <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                <span
+                  class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">BESTSELLER</span>
+                <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">15% OFF</span>
+              </div>
+              <div
+                class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
+                <img src="./assets/Images/Products/pdt2.jpg" alt="Advanced Hyaluronic Serum" loading="lazy"
+                  class="w-80 h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Advanced Hyaluronic Serum</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$29.99</span>
+                    <span class="text-sm line-through text-gray-400">$35.00</span>
+                    <span class="text-amber-500">★ 4.8</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="hair">
-            <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
-              <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">HOT PICK</span>
-            </div>
-            <div class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
-                <img src="./assets/Images/Products/pdt4.jpg" alt="BC Peptide Repair Rescue" class="w-80 h-64 object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">BC Peptide Repair Rescue</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$45.00</span>
-                  <span class="text-sm line-through text-gray-400">$52.99</span>
-                  <span class="text-amber-500">★ 4.7</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="makeup">
+              <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                <span
+                  class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">TRENDING</span>
+              </div>
+              <div
+                class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
+                <img src="./assets/Images/Products/pdt3.jpg" alt="Velvet Matte Lipstick" loading="lazy"
+                  class="w-80 h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Velvet Matte Lipstick</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$24.50</span>
+                    <span class="text-amber-500">★ 4.7</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="skin">
-            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src="https://source.unsplash.com/random/300x400/?moisturizer-jar,skincare,minimalist" alt="Aqua Moisture Lotion" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Aqua Moisture Lotion</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$33.99</span>
-                  <span class="text-sm line-through text-gray-400">$40.00</span>
-                  <span class="text-amber-500">★ 4.9</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="hair">
+              <div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                <span class="bg-amber-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">HOT
+                  PICK</span>
+              </div>
+              <div
+                class="product-image-container relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden w-80 h-64">
+                <img src="./assets/Images/Products/pdt4.jpg" alt="BC Peptide Repair Rescue" loading="lazy"
+                  class="w-80 h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">BC Peptide Repair Rescue</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$45.00</span>
+                    <span class="text-sm line-through text-gray-400">$52.99</span>
+                    <span class="text-amber-500">★ 4.7</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="makeup">
-            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src="https://source.unsplash.com/random/300x400/?nail-polish,shimmer,minimalist" alt="Shimmer Nail Polish Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Shimmer Nail Polish Set</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$19.99</span>
-                  <span class="text-amber-500">★ 4.6</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="skin">
+              <div
+                class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?moisturizer-jar,skincare,minimalist"
+                  alt="Aqua Moisture Lotion"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Aqua Moisture Lotion</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$33.99</span>
+                    <span class="text-sm line-through text-gray-400">$40.00</span>
+                    <span class="text-amber-500">★ 4.9</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="hair">
-            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src="https://source.unsplash.com/random/300x400/?supplement-bottle,vitamins,minimalist" alt="Hair Repair Vitamins + Plex" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Hair Repair Vitamins + Plex</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$59.99</span>
-                  <span class="text-sm line-through text-gray-400">$70.99</span>
-                  <span class="text-amber-500">★ 5.0</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="makeup">
+              <div
+                class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?nail-polish,shimmer,minimalist"
+                  alt="Shimmer Nail Polish Set"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Shimmer Nail Polish Set</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$19.99</span>
+                    <span class="text-amber-500">★ 4.6</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
-              </div>
             </div>
-          </div>
 
-          <div class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-            data-category="makeup">
-            <div class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src="https://source.unsplash.com/random/300x400/?eyeshadow-palette,makeup,minimalist" alt="Radiant Eyeshadow Palette" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-            <div class="text-center">
-              <div class="min-h-16 flex flex-col justify-center items-center">
-                <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Radiant Eyeshadow Palette</h3>
-                <div class="flex items-center justify-center space-x-2">
-                  <span class="text-xl font-bold text-gray-900">$39.00</span>
-                  <span class="text-amber-500">★ 4.8</span>
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="hair">
+              <div
+                class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?supplement-bottle,vitamins,minimalist"
+                  alt="Hair Repair Vitamins + Plex"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Hair Repair Vitamins + Plex</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$59.99</span>
+                    <span class="text-sm line-through text-gray-400">$70.99</span>
+                    <span class="text-amber-500">★ 5.0</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-              <div class="mt-4">
-                <button
-                  class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
-                  style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                  Buy Now
-                </button>
+            </div>
+
+            <div
+              class="product-card min-w-52 min-h-21 group relative bg-white rounded-2xl border border-gray-200 p-6 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+              data-category="makeup">
+              <div
+                class="relative mb-6 aspect-[3/4] bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src="https://source.unsplash.com/random/300x400/?eyeshadow-palette,makeup,minimalist"
+                  alt="Radiant Eyeshadow Palette"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="text-center">
+                <div class="min-h-16 flex flex-col justify-center items-center">
+                  <h3 class="text-base font-semibold text-gray-900 mb-1 leading-snug">Radiant Eyeshadow Palette</h3>
+                  <div class="flex items-center justify-center space-x-2">
+                    <span class="text-xl font-bold text-gray-900">$39.00</span>
+                    <span class="text-amber-500">★ 4.8</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button
+                    class="w-full text-gray-900 font-semibold py-3 rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] active:scale-95 shadow-lg"
+                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                    Buy Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <button aria-label="Next products" id="nextBtn"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
       </div>
-
-      <button aria-label="Next products" id="nextBtn"
-        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white rounded-full p-3 shadow-lg ring-2 ring-white hover:shadow-xl transition-all duration-300 hover:scale-105 hidden lg:block">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
     </div>
-  </div>
-</section>
-<!-- ✅ Functional JS -->
-<script>
-  // Carousel scrolling
-  const productContainer = document.getElementById('productContainer');
-  document.getElementById('nextBtn').onclick = () => productContainer.scrollBy({ left: 400, behavior: 'smooth' });
-  document.getElementById('prevBtn').onclick = () => productContainer.scrollBy({ left: -400, behavior: 'smooth' });
+  </section>
+  <!-- ✅ Functional JS -->
+  <script>
+    // Carousel scrolling
+    const productContainer = document.getElementById('productContainer');
+    document.getElementById('nextBtn').onclick = () => productContainer.scrollBy({ left: 400, behavior: 'smooth' });
+    document.getElementById('prevBtn').onclick = () => productContainer.scrollBy({ left: -400, behavior: 'smooth' });
 
-  // Category filtering
-  const categoryBtns = document.querySelectorAll('.category-btn');
-  const cards = document.querySelectorAll('.product-card');
+    // Category filtering
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const cards = document.querySelectorAll('.product-card');
 
-  categoryBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selected = btn.getAttribute('data-category');
-      categoryBtns.forEach(b => b.style.backgroundImage = 'none');
-      btn.style.backgroundImage = "url('assets/metallicGold.jpg')";
-      btn.style.backgroundSize = "cover";
-      btn.style.backgroundPosition = "center";
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = btn.getAttribute('data-category');
+        categoryBtns.forEach(b => b.style.backgroundImage = 'none');
+        btn.style.backgroundImage = "url('assets/metallicGold.jpg')";
+        btn.style.backgroundSize = "cover";
+        btn.style.backgroundPosition = "center";
 
-      cards.forEach(card => {
-        card.style.display = (selected === 'all' || card.dataset.category === selected) ? 'block' : 'none';
+        cards.forEach(card => {
+          card.style.display = (selected === 'all' || card.dataset.category === selected) ? 'block' : 'none';
+        });
       });
     });
-  });
-</script>
+  </script>
 
-    <!-- Gallery Preview Section -->
-    <section class="py-24 bg-white text-gray-900 relative overflow-hidden" id="gallery-preview" style="min-height: 80vh;">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <p class="text-gold uppercase tracking-widest text-base font-medium">Our Gallery</p>
-                <h2 class="text-4xl md:text-5xl font-light mt-2 mb-4">Masterpiece Collection</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Experience our finest transformations through our curated collection of stunning styles and elegant looks.
-                </p>
+  <!-- Services Section -->
+  <section class="py-20 bg-white" id="services-section">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-gold uppercase tracking-widest text-base font-medium">Our Services</p>
+        <h2 class="text-4xl md:text-5xl font-light mt-2 mb-4">Specialized Care</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We offer tailored beauty services for everyone, ensuring you look and feel your absolute best.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Men's Services -->
+        <div
+          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="relative h-96 overflow-hidden">
+            <img src="./assets/Images/Services/men-service.jpg" alt="Men's Grooming Services" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300">
             </div>
-
-            <!-- Gallery Carousel Container -->
-            <div class="gallery-container mx-auto mb-12"></div>
-
-            <div class="flex justify-center space-x-6 mb-12">
-                <button id="prev-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                </button>
-                <button id="next-btn" class="text-gold border border-gold p-4 rounded-full transition-colors duration-300 hover:bg-gold hover:text-black transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
-            </div>
-
-            <div class="text-center">
-                <a href="gallery.html" class="inline-flex items-center px-8 py-3 border-2 border-gold text-gray-900 hover:text-black hover:bg-gold transition-all duration-300 rounded-md transform hover:scale-105">
-                    Explore Full Gallery
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
-            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-300">
+            <h3 class="text-2xl font-bold mb-2">Men's Grooming</h3>
+            <p class="text-sm text-gray-200 mb-4">Classic cuts, beard styling, and modern grooming services tailored for
+              gentlemen.</p>
+            <button onclick="window.location.href='services.html';"
+              class="px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-300 transform group-hover:scale-105"
+              style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+              Explore Men's Services
+            </button>
+          </div>
         </div>
-    </section>
 
-    <style>
-        /* Gallery Carousel Styles */
-        .gallery-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 24rem;
-            perspective: 1000px; 
-            position: relative;
-            overflow: hidden; 
-        }
-
-        .gallery-card {
-            position: absolute;
-            width: 13rem;
-            height: 18rem;
-            background-color: #fff; 
-            border-radius: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transition: transform 0.25s cubic-bezier(0.5,0.1,0.2,1), opacity 0.25s cubic-bezier(0.5,0.1,0.2,1);
-            cursor: pointer;
-            overflow: hidden;
-            transform: translateX(0) scale(1) translateZ(0);
-            opacity: 1;
-        }
-
-        /* CARD STATES & Swipe Animations */
-        .card-active {
-            z-index: 10;
-            transform: translateX(0) scale(1.18) translateZ(0); 
-            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.35);
-        }
-
-        .card-prev {
-            z-index: 5;
-            transform: translateX(-10rem) scale(0.92) rotateY(14deg);
-            opacity: 0.82;
-        }
-
-        .card-next {
-            z-index: 5;
-            transform: translateX(10rem) scale(0.92) rotateY(-14deg);
-            opacity: 0.82;
-        }
-
-        .card-prev-far {
-            z-index: 1;
-            transform: translateX(-15rem) scale(0.84) rotateY(15deg);
-            opacity: 0.3;
-        }
-
-        .card-next-far {
-            z-index: 1;
-            transform: translateX(15rem) scale(0.84) rotateY(-15deg);
-            opacity: 0.3;
-        }
-        
-        .card-hidden {
-            z-index: 0;
-            opacity: 0;
-            transform: scale(0.5);
-            pointer-events: none;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1rem;
-        }
-
-        .card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-            display: flex;
-            align-items: flex-end;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .card-active .card-overlay {
-            opacity: 1;
-        }
-    </style>
-
-    <!-- Contact Section -->
-    <section id="contact-section" class="py-20 bg-gray-900 text-ivory scroll-section relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <div class="p-6 sm:p-10 bg-gray-800 rounded-xl shadow-2xl">
-                    <div class="mb-6">
-                        <p class="text-lg text-gold font-medium tracking-widest uppercase">Contact Us</p>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-ivory">Get In Touch</h2>
-                    </div>
-                    <form action="#" method="POST" class="space-y-6">
-                        <div><label for="name" class="sr-only">Name</label>
-                            <input id="name" name="name" placeholder="Your Name..."
-                                   class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200" required>
-                        </div>
-                        <div><label for="email" class="sr-only">Email</label>
-                            <input id="email" name="email" type="email" placeholder="example@yourmail.com"
-                                   class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200" required>
-                        </div>
-                        <div><label for="subject" class="sr-only">Subject</label>
-                            <input id="subject" name="subject" placeholder="Subject..."
-                                   class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200" required>
-                        </div>
-                        <div><label for="message" class="sr-only">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Type Here..."
-                                      class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200" required></textarea>
-                        </div>
-                        <div>
-                            <button type="submit"
-                                class="w-full py-3 text-black font-semibold rounded-lg transition duration-300 ease-in-out flex items-center justify-center"
-                                style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
-                                <span class="relative z-10">Send Now</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="p-6 sm:p-10">
-                    <p class="text-ivory/70 mb-6 text-base leading-relaxed">If you prefer, call or email us — otherwise fill the form and we'll get back to you.</p>
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-phone-alt text-2xl text-gold mt-1"></i>
-                            <div>
-                                <p class="text-base font-bold text-ivory">Phone Number</p>
-                                <a href="tel:+15551234567" class="text-ivory/70 text-sm hover:text-gold transition">+1 (555) 123-4567</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-envelope text-2xl text-gold mt-1"></i>
-                            <div>
-                                <p class="text-base font-bold text-ivory">Email Address</p>
-                                <a href="mailto:info@kendall.com" class="text-ivory/70 text-sm hover:text-gold transition">info@kendall.com</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-map-marker-alt text-2xl text-gold mt-1"></i>
-                            <div>
-                                <p class="text-base font-bold text-ivory">Our Office</p>
-                                <p class="text-ivory/70 text-sm">123 Beauty Street, New York, NY 10001</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Map: Model Engineering College Thrikkakara (shows salon location by default) -->
-                    <div class="mt-8">
-                        <div class="w-full h-64 md:h-80 rounded-lg overflow-hidden border border-gray-700 shadow-xl">
-                            <iframe
-                                class="w-full h-full"
-                                src="https://www.google.com/maps?q=Model+Engineering+College+Thrikkakara&output=embed"
-                                aria-label="Salon location map - Model Engineering College Thrikkakara"
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
+        <!-- Women's Services -->
+        <div
+          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="relative h-96 overflow-hidden">
+            <img src="./assets/Images/Services/women-service.jpg" alt="Women's Beauty Services" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300">
             </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-300">
+            <h3 class="text-2xl font-bold mb-2">Women's Beauty</h3>
+            <p class="text-sm text-gray-200 mb-4">Hair styling, coloring, treatments, and makeup services for the modern
+              woman.</p>
+            <button onclick="window.location.href='services.html';"
+              class="px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-300 transform group-hover:scale-105"
+              style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+              Explore Women's Services
+            </button>
+          </div>
         </div>
-    </section>
-    <!-- End contact section -->
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16 scroll-section relative z-10" id="footer">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div class="stagger-item">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center mr-3">
-                            <span class="text-black font-bold text-xl">K</span>
-                        </div>
-                        <h3 class="text-2xl font-bold">KENDALL</h3>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed">
-                        Experience the art of beauty with our professional hair styling and luxurious treatments.
-                    </p>
-                </div>
-                
-                <div class="stagger-item" style="transition-delay: 0.1s;">
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about-section" class="text-gray-400 hover:text-gold transition-colors duration-300">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Services</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Portfolio</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="stagger-item" style="transition-delay: 0.2s;">
-                    <h4 class="text-lg font-semibold mb-6">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Styling</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Coloring</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Treatment</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Makeup</a></li>
-                    </ul>
-                </div>
-                
-                <div class="stagger-item" style="transition-delay: 0.3s;">
-                    <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
-                    <div class="space-y-3">
-                        <p class="text-gray-400">123 Beauty Street<br>New York, NY 10001</p>
-                        <p class="text-gray-400">Phone: +1 (555) 123-4567</p>
-                        <p class="text-gray-400">Email: info@kendall.com</p>
-                    </div>
-                </div>
+        <!-- Other Services -->
+        <div
+          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="relative h-96 overflow-hidden">
+            <img src="./assets/Images/Services/other-service.jpg" alt="Special Services" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300">
             </div>
-            
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 Kendall Beauty Salon. All rights reserved.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.357-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017.017"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-300">
+            <h3 class="text-2xl font-bold mb-2">Special Services</h3>
+            <p class="text-sm text-gray-200 mb-4">Bridal packages, events, spa treatments, and personalized beauty
+              experiences.</p>
+            <button onclick="window.location.href='services.html';"
+              class="px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-300 transform group-hover:scale-105"
+              style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+              Explore Special Services
+            </button>
+          </div>
         </div>
-    </footer>
-        <script src="assets/main.js"></script>
-
-    <!-- Fixed WhatsApp & Email Buttons -->
-    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-4 z-50">
-      <a href="https://wa.me/15551234567" target="_blank" aria-label="WhatsApp" class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition-all duration-300" style="box-shadow: 0 4px 24px rgba(34,197,94,0.25);">
-        <i class="fab fa-whatsapp text-white text-2xl"></i>
-      </a>
-      <a href="mailto:info@kendall.com" aria-label="Email" class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-gold hover:bg-gold-dark transition-all duration-300" style="box-shadow: 0 4px 24px rgba(212,175,55,0.18);">
-        <i class="fas fa-envelope text-white text-2xl"></i>
-      </a>
+      </div>
     </div>
+  </section>
+
+  <!-- Gallery Preview Section -->
+  <section class="py-16 bg-gradient-to-b from-gray-50 to-white text-gray-900 relative" id="gallery-preview">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10 animate-fade-in">
+        <p class="text-gold uppercase tracking-widest text-sm font-medium">Our Gallery</p>
+        <h2 class="text-3xl md:text-4xl font-light mt-2 mb-3">Masterpiece Collection</h2>
+        <p class="text-gray-600 max-w-xl mx-auto text-sm">
+          Experience our finest transformations through our curated collection of stunning styles.
+        </p>
+      </div>
+
+      <!-- Auto-scrolling Gallery Carousel -->
+      <div class="relative mb-8 overflow-hidden">
+        <div class="gallery-carousel-track flex gap-4 px-4" id="galleryCarousel">
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img1.jpg" alt="Gallery Image 1" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Elegant Style</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img2.jpg" alt="Gallery Image 2" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Modern Look</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img3.jpg" alt="Gallery Image 3" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Classic Beauty</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img4.jpg" alt="Gallery Image 4" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Trendy Style</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img5.jpg" alt="Gallery Image 5" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Chic Design</span>
+            </div>
+          </div>
+          <!-- Duplicate images for seamless loop -->
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img1.jpg" alt="Gallery Image 1" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Elegant Style</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img2.jpg" alt="Gallery Image 2" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Modern Look</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img3.jpg" alt="Gallery Image 3" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Classic Beauty</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img4.jpg" alt="Gallery Image 4" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Trendy Style</span>
+            </div>
+          </div>
+          <div
+            class="gallery-item group relative overflow-hidden rounded-xl flex-shrink-0 w-64 h-80 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="./assets/Images/Gallery/img5.jpg" alt="Gallery Image 5" loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-4">
+              <span class="text-white font-semibold">Chic Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Auto-scrolling gallery carousel
+        const galleryCarousel = document.getElementById('galleryCarousel');
+        let scrollPosition = 0;
+        const scrollSpeed = 1;
+        const cardWidth = 272; // 256px + 16px gap
+        let isPaused = false;
+
+        function autoScroll() {
+          if (!isPaused) {
+            scrollPosition += scrollSpeed;
+            galleryCarousel.style.transform = `translateX(-${scrollPosition}px)`;
+
+            // Reset when we've scrolled through the original 5 images
+            if (scrollPosition >= cardWidth * 5) {
+              scrollPosition = 0;
+            }
+          }
+          requestAnimationFrame(autoScroll);
+        }
+
+        // Pause on hover
+        galleryCarousel.addEventListener('mouseenter', () => {
+          isPaused = true;
+        });
+
+        galleryCarousel.addEventListener('mouseleave', () => {
+          isPaused = false;
+        });
+
+        // Start the animation
+        autoScroll();
+      </script>
+
+      <style>
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      </style>
+
+      <div class="text-center">
+        <a href="gallery.html"
+          class="inline-flex items-center px-8 py-3 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+          style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+          Explore Full Gallery
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section" class="py-20 bg-gray-900 text-ivory scroll-section relative z-10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div class="p-6 sm:p-10 bg-gray-800 rounded-xl shadow-2xl">
+          <div class="mb-6">
+            <p class="text-lg text-gold font-medium tracking-widest uppercase">Contact Us</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-ivory">Get In Touch</h2>
+          </div>
+          <form action="#" method="POST" class="space-y-6">
+            <div><label for="name" class="sr-only">Name</label>
+              <input id="name" name="name" placeholder="Your Name..."
+                class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200"
+                required>
+            </div>
+            <div><label for="email" class="sr-only">Email</label>
+              <input id="email" name="email" type="email" placeholder="example@yourmail.com"
+                class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200"
+                required>
+            </div>
+            <div><label for="subject" class="sr-only">Subject</label>
+              <input id="subject" name="subject" placeholder="Subject..."
+                class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200"
+                required>
+            </div>
+            <div><label for="message" class="sr-only">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Type Here..."
+                class="block w-full bg-gray-900 border border-gray-700 rounded-lg p-3 text-ivory placeholder-ivory/60 focus:ring-gold focus:border-gold transition duration-200"
+                required></textarea>
+            </div>
+            <div>
+              <button type="submit"
+                class="w-full py-3 text-black font-semibold rounded-lg transition duration-300 ease-in-out flex items-center justify-center"
+                style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                <span class="relative z-10">Send Now</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="p-6 sm:p-10">
+          <p class="text-ivory/70 mb-6 text-base leading-relaxed">If you prefer, call or email us — otherwise fill the
+            form and we'll get back to you.</p>
+          <div class="grid grid-cols-1 gap-6">
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-phone-alt text-2xl text-gold mt-1"></i>
+              <div>
+                <p class="text-base font-bold text-ivory">Phone Number</p>
+                <a href="tel:+91 9895223774" class="text-ivory/70 text-sm hover:text-gold transition">+91 98952
+                  23774</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-envelope text-2xl text-gold mt-1"></i>
+              <div>
+                <p class="text-base font-bold text-ivory">Email Address</p>
+                <a href="mailto:info@HEBRON.com"
+                  class="text-ivory/70 text-sm hover:text-gold transition">info@HEBRON.com</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-map-marker-alt text-2xl text-gold mt-1"></i>
+              <div>
+                <p class="text-base font-bold text-ivory">Our Office</p>
+                <p class="text-ivory/70 text-sm">Pipeline Rd, Maveli Nagar, Vidya Nagar Colony, Thrikkakara, Edappally,
+                  Ernakulam, Kochi, Kerala 682021</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map: Hebron Hair and Beauty Spa (shows salon location by default) -->
+          <div class="mt-8">
+            <div class="w-full h-64 md:h-80 rounded-lg overflow-hidden border border-gray-700 shadow-xl">
+              <iframe class="w-full h-full"
+                src="https://www.google.com/maps?q=Hebron+hair+beauty+spa/@10.0343058,76.3282588,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080c4f5b10da45:0xb01bdfd00ac74af1!8m2!3d10.0343058!4d76.3282588!16s%2Fg%2F1260ssxv0?entry=ttu&amp;g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D&amp;output=embed"
+                aria-label="Salon location map - Hebron Hair and Beauty Spa" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End contact section -->
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="animate-fade-in">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3">
+              <img src="./assets/Images/Other/logo.jpg" alt="logo" class="w-8 h-8 object-cover rounded-full">
+            </div>
+            <h3 class="text-2xl font-bold">HEBRON</h3>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            Experience the art of beauty with our professional hair styling and luxurious treatments.
+          </p>
+        </div>
+
+        <div class="animate-fade-in" style="animation-delay: 0.1s;">
+          <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#about-section"
+                class="text-gray-400 hover:text-gold transition-colors duration-300">About Us</a></li>
+            <li><a href="services.html"
+                class="text-gray-400 hover:text-gold transition-colors duration-300">Services</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Gallery</a>
+            </li>
+            <li><a href="index.html#contact-section"
+                class="text-gray-400 hover:text-gold transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+          <h4 class="text-lg font-semibold mb-6">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair
+                Styling</a>
+            </li>
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair
+                Coloring</a>
+            </li>
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair
+                Treatment</a>
+            </li>
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Makeup</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animate-fade-in" style="animation-delay: 0.3s;">
+          <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+          <div class="space-y-3">
+            <p class="text-gray-400">Pipeline Rd, Maveli Nagar, Vidya Nagar Colony,<br> Thrikkakara, Edappally,
+              Ernakulam, Kochi, Kerala 682021</p>
+            <p class="text-gray-400">Phone: +91 9895223774</p>
+            <p class="text-gray-400">Email: info@HEBRON.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-start">
+          <p class="text-gray-400 mb-4 md:mb-0">© 2025 HEBRON Beauty Salon. All rights reserved.</p>
+          <div class="flex space-x-8 mr-24 md:ml-16">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"
+              class="text-gray-400 hover:text-gold transition-colors duration-300">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+              class="text-gray-400 hover:text-gold transition-colors duration-300">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" aria-label="X (Twitter)"
+              class="text-gray-400 hover:text-gold transition-colors duration-300">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/main.js"></script>
+
+  <!-- Fixed WhatsApp & Email Buttons -->
+  <div class="fixed bottom-6 right-6 flex flex-col items-end gap-4 z-50">
+    <a href="https://wa.me/+919895223774" target="_blank" aria-label="WhatsApp"
+      class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition-all duration-300"
+      style="box-shadow: 0 4px 24px rgba(34,197,94,0.25);">
+      <i class="fab fa-whatsapp text-white text-2xl"></i>
+    </a>
+    <a href="mailto:info@HEBRON.com" aria-label="Email"
+      class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-gold hover:bg-gold-dark transition-all duration-300"
+      style="box-shadow: 0 4px 24px rgba(212,175,55,0.18);">
+      <i class="fas fa-envelope text-white text-2xl"></i>
+    </a>
+  </div>
 </body>
+
 </html>

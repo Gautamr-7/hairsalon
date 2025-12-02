@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Hebron Beauty Salon</title>
+    <title>HEBRON - Beautiful Hair Salon</title>
+    <link rel="icon" href="./assets/Images/Other/logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="./assets/Images/Other/logo.jpg">
+    <meta name="theme-color" content="#D4AF37">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -48,52 +53,65 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-50">
-<!-- Header -->
+    <!-- Header -->
     <header class="fixed top-0 w-full bg-black backdrop-blur-sm z-50 transition-all duration-300" id="header">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center animate-slide-in-left">
-                <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center mr-3">
-                    <span class="text-black font-bold text-xl">K</span>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <img src="./assets/Images/Other/logo.jpg" alt="logo" class="w-8 h-8 object-cover rounded-full">
                 </div>
-                <h1 class="text-white text-2xl font-bold">KENDALL</h1>
+                <h1 class="text-white text-2xl font-bold">HEBRON</h1>
             </div>
-            
+
             <nav class="hidden md:flex space-x-8 animate-fade-in">
-                <a href="index.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">HOME</a>
-                <a href="index.html#about-section" class="text-white hover:text-gold transition-colors duration-300 font-medium">ABOUT</a>
-                <a href="services.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">SERVICES</a>
-                <a href="gallery.html" class="text-white hover:text-gold transition-colors duration-300 font-medium">GALLERY</a>
-                <a href="index.html#contact-section" class="text-white hover:text-gold transition-colors duration-300 font-medium">CONTACT</a>
+                <a href="index.html"
+                    class="text-white hover:text-gold transition-colors duration-300 font-medium">HOME</a>
+                <a href="index.html#about-section"
+                    class="text-white hover:text-gold transition-colors duration-300 font-medium">ABOUT</a>
+                <a href="services.html"
+                    class="text-white hover:text-gold transition-colors duration-300 font-medium">SERVICES</a>
+                <a href="gallery.html"
+                    class="text-white hover:text-gold transition-colors duration-300 font-medium">GALLERY</a>
+                <a href="index.html#contact-section"
+                    class="text-white hover:text-gold transition-colors duration-300 font-medium">CONTACT</a>
             </nav>
-            
+
             <div class="flex items-center space-x-4 animate-slide-in-right">
-                <button
+                <a href="https://wa.me/+919895223774?text=Hey%20I%20would%20like%20to%20book%20an%20appointment"
+                    target="_blank"
                     class="md:block hidden text-black font-semibold px-6 py-2 rounded-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
                     style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
                     <span class="relative z-10">BOOK NOW</span>
-                </button>
+                </a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <button class="md:hidden text-white" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="md:hidden bg-black bg-opacity-95 hidden" id="mobile-menu">
             <div class="px-4 py-2 space-y-2">
-                <a href="index.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">HOME</a>
+                <a href="index.html"
+                    class="block text-white hover:text-gold py-2 transition-colors duration-300">HOME</a>
                 <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">ABOUT</a>
-                <a href="services.html" class="block text-white hover:text-gold py-2 transition-colors duration-300">SERVICES</a>
+                <a href="services.html"
+                    class="block text-white hover:text-gold py-2 transition-colors duration-300">SERVICES</a>
                 <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">GALLERY</a>
-                <a href="#" class="block text-white hover:text-gold py-2 transition-colors duration-300">CONTACT</a>
-                <button class="w-full text-left bg-gold hover:bg-gold-dark text-black font-semibold px-4 py-2 rounded-sm transition-all duration-300 mt-2">
+                <a href="index.html#contact-section"
+                    class="block text-white hover:text-gold py-2 transition-colors duration-300">CONTACT</a>
+                <a href="https://wa.me/+919895223774?text=Hey%20I%20would%20like%20to%20book%20an%20appointment"
+                    target="_blank"
+                    class="block w-full text-left bg-gold hover:bg-gold-dark text-black font-semibold px-4 py-2 rounded-sm transition-all duration-300 mt-2">
                     BOOK NOW
-                </button>
+                </a>
             </div>
         </div>
     </header>
@@ -101,10 +119,8 @@
     <!-- Services Hero Section -->
     <section class="relative h-64 md:h-80 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50 z-10"></div>
-        <div class="absolute inset-0 flex">
-            <div class="w-full bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop');">
-            </div>
-        </div>
+        <img src="./assets/Images/Services/banner.jpg" alt="Services Banner"
+            class="absolute inset-0 w-full h-full object-cover">
         <div class="relative z-20 flex items-center justify-center h-full">
             <h1 class="text-6xl md:text-8xl font-light text-white animate-scale-in">Services</h1>
         </div>
@@ -113,256 +129,795 @@
     <!-- Services Content -->
     <section class="py-16">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Sidebar -->
-                <div class="lg:w-1/4 animate-slide-in-left">
-                    <div class="bg-gray-800 rounded-lg p-6 mb-8 sticky top-24 z-10">
-                        <h3 class="text-gold text-xl font-bold mb-6">SERVICES</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-center bg-gray-700 p-3 rounded-lg cursor-pointer hover:bg-gold hover:text-black transition-all duration-300 service-category" data-category="skin">
-                                <img src="https://images.pexels.com/photos/5240446/pexels-photo-5240446.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
-                                     alt="Skin" class="w-8 h-8 rounded-full mr-3 object-cover">
-                                <span class="text-white font-medium">Skin</span>
-                            </li>
-                            <li class="flex items-center bg-gold p-3 rounded-lg cursor-pointer hover:bg-gold-dark transition-all duration-300 service-category" data-category="hair">
-                                <img src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
-                                     alt="Hair" class="w-8 h-8 rounded-full mr-3 object-cover">
-                                <span class="text-black font-medium">Hair</span>
-                            </li>
-                            <li class="flex items-center bg-gray-700 p-3 rounded-lg cursor-pointer hover:bg-gold hover:text-black transition-all duration-300 service-category" data-category="makeup">
-                                <img src="https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
-                                     alt="Makeup" class="w-8 h-8 rounded-full mr-3 object-cover">
-                                <span class="text-white font-medium">Makeup</span>
-                            </li>
-                            <li class="flex items-center bg-gray-700 p-3 rounded-lg cursor-pointer hover:bg-gold hover:text-black transition-all duration-300 service-category" data-category="hands">
-                                <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
-                                     alt="Hand & feet" class="w-8 h-8 rounded-full mr-3 object-cover">
-                                <span class="text-white font-medium">Hand & feet</span>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="max-w-7xl mx-auto">
+                <!-- Gender Filter Tabs -->
+                <div class="mb-12 bg-white rounded-xl shadow-md p-2 inline-flex gap-2">
+                    <button class="gender-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-black"
+                        data-gender="all"
+                        style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                        All Services
+                    </button>
+                    <button
+                        class="gender-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        data-gender="women">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222">
+                            </path>
+                        </svg>
+                        Women
+                    </button>
+                    <button
+                        class="gender-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        data-gender="men">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        Men
+                    </button>
                 </div>
 
-                <!-- Service Cards -->
-                <div class="lg:w-2/3 animate-slide-in-right">
-                    <div class="grid gap-6" id="services-grid">
-                        <!-- Hair Services -->
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Treatment" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Luxury Hair Treatment</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>90 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                <div class="grid gap-6" id="services-grid">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                        <!-- Mixed Hair Services -->
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/A-Neat-Pompadou.jpg" alt="A Neat Pompadou"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">A Neat Pompadou</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Classic pompadour styling with modern precision
+                                    for a sophisticated look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the A Neat Pompadou service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Treatment" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Luxury Hair Treatment</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>90 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Fish-tail-side-braid-haircuts.jpg"
+                                    alt="Fish Tail Side Braid"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Fish Tail Side Braid</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Elegant fishtail braid styled to the side for a
+                                    romantic and feminine look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Fish Tail Side Braid service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Treatment" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Luxury Hair Treatment</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>90 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/BRAIDED-ROWS.jpg" alt="Braided Rows"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    120 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Braided Rows</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Expertly crafted braided rows for a clean, sharp,
+                                    and stylish appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Braided Rows service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Treatment" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Luxury Hair Treatment</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>90 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.4s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Natural-Waves.jpg" alt="Natural Waves"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Natural Waves</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Effortless beachy waves for a natural, relaxed,
+                                    and beautiful style.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Natural Waves service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Styling" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Professional Hair Styling</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>60 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.5s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Classic-Slick-Back.jpg" alt="Classic Slick Back"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Classic Slick Back</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Elegant slicked-back hairstyle for a refined and
+                                    sophisticated appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Classic Slick Back service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.7s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Buzz-Cut.jpg" alt="Buzz Cut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    45 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Buzz Cut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Clean, minimalist buzz cut for a low-maintenance
+                                    and sharp look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Buzz Cut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <div class="service-card hair-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.3s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3992828/pexels-photo-3992828.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Hair Color" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Hair Color & Highlights</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>120 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.8s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Poker-straight-haircuts.jpg"
+                                    alt="Poker Straight Haircuts"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Poker Straight Haircuts</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sleek and perfectly straight hair for a polished
+                                    and modern appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Poker Straight Haircuts service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <!-- Skin Services (Initially Hidden) -->
-                        <div class="service-card skin-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up hidden" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/5240446/pexels-photo-5240446.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Facial Treatment" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Deep Cleansing Facial</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>75 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.9s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Comb-Over-Quiff .jpg" alt="Comb Over Quiff"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Comb Over Quiff</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Voluminous quiff combined with a sleek comb-over
+                                    for a modern edge.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Comb Over Quiff service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <!-- Makeup Services (Initially Hidden) -->
-                        <div class="service-card makeup-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up hidden" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Makeup" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Bridal Makeup</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>90 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 1.0s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Medium-length-French-twist.jpg"
+                                    alt="Medium Length French Twist"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Medium Length French Twist</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Classic French twist styled perfectly for
+                                    medium-length hair with sophisticated elegance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Medium Length French Twist service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
 
-                        <!-- Hand & Feet Services (Initially Hidden) -->
-                        <div class="service-card hands-service bg-white rounded-lg border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up hidden" style="animation-delay: 0.1s;">
-                            <div class="flex items-center">
-                                <img src="https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop" 
-                                     alt="Manicure" class="w-20 h-20 rounded-lg object-cover mr-6">
-                                <div class="flex-1">
-                                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Luxury Manicure & Pedicure</h4>
-                                    <div class="flex items-center text-gray-600 mb-4">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>60 mins</span>
-                                    </div>
-                                    <div class="flex space-x-3">
-                                        <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Book Now
-                                        </button>
-                                        <button class="border border-gray-300 hover:border-gold text-gray-700 hover:text-gold px-6 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            VIEW MORE
-                                        </button>
-                                    </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 1.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/CLASSIC-CREW-CUT.jpg" alt="Classic Crew Cut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
                                 </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Classic Crew Cut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Timeless crew cut with precision tapering for a
+                                    neat and professional finish.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Classic Crew Cut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 1.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Waterfall-braide.jpg" alt="Waterfall Braid"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Waterfall Braid</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Stunning waterfall braid creating a cascading
+                                    effect for a romantic style.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Waterfall Braid service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 1.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Boyish-and-Messy.jpg" alt="Boyish and Messy"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Boyish and Messy</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Effortlessly stylish messy look with textured
+                                    layers and natural movement.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Boyish and Messy service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 1.4s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/COMBED-BACK.jpg" alt="Combed Back"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Combed Back</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sharp combed-back style for a polished and
+                                    professional look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Combed Back service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 1.5s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/CRISP-RECESSION-LINE.jpg" alt="Crisp Recession Line"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Crisp Recession Line</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Precision lineup with crisp edges for a clean and
+                                    defined hairline.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Crisp Recession Line service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 1.6s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/SUBTLE-UNDERCUT.jpg" alt="Subtle Undercut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Subtle Undercut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Understated undercut for a contemporary and
+                                    versatile hairstyle.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Subtle Undercut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/A-Neat-Pompadou.jpg" alt="A Neat Pompadou"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">A Neat Pompadou</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Classic pompadour styling with modern precision
+                                    for a sophisticated look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the A Neat Pompadou service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Boyish-and-Messy.jpg" alt="Boyish and Messy"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Boyish and Messy</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Effortlessly stylish messy look with textured
+                                    layers and natural movement.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Boyish and Messy service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/BRAIDED-ROWS.jpg" alt="Braided Rows"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    120 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Braided Rows</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Expertly crafted braided rows for a clean, sharp,
+                                    and stylish appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Braided Rows service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.4s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Buzz-Cut.jpg" alt="Buzz Cut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    45 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Buzz Cut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Clean, minimalist buzz cut for a low-maintenance
+                                    and sharp look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Buzz Cut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Skin Services -->
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/CLASSIC-CREW-CUT.jpg" alt="Classic Crew Cut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Classic Crew Cut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Timeless crew cut with precision tapering for a
+                                    neat and professional finish.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Classic Crew Cut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Classic-Slick-Back.jpg" alt="Classic Slick Back"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Classic Slick Back</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Elegant slicked-back hairstyle for a refined and
+                                    sophisticated appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Classic Slick Back service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Makeup Services -->
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Comb-Over-Quiff .jpg" alt="Comb Over Quiff"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Comb Over Quiff</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Voluminous quiff combined with a sleek comb-over
+                                    for a modern edge.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Comb Over Quiff service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/COMBED-BACK.jpg" alt="Combed Back"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Combed Back</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sharp combed-back style for a polished and
+                                    professional look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Combed Back service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hand & Feet Services -->
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/CRISP-RECESSION-LINE.jpg" alt="Crisp Recession Line"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Crisp Recession Line</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Precision lineup with crisp edges for a clean and
+                                    defined hairline.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Crisp Recession Line service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="men"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/SUBTLE-UNDERCUT.jpg" alt="Subtle Undercut"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Subtle Undercut</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Understated undercut for a contemporary and
+                                    versatile hairstyle.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Subtle Undercut service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Women's Services -->
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.1s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Fish-tail-side-braid-haircuts.jpg"
+                                    alt="Fish Tail Side Braid"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Fish Tail Side Braid</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Elegant fishtail braid styled to the side for a
+                                    romantic and feminine look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Fish Tail Side Braid service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.2s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Medium-length-French-twist.jpg"
+                                    alt="Medium Length French Twist"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Medium Length French Twist</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Classic French twist styled perfectly for
+                                    medium-length hair with sophisticated elegance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Medium Length French Twist service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Natural-Waves.jpg" alt="Natural Waves"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    60 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Natural Waves</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Effortless beachy waves for a natural, relaxed,
+                                    and beautiful style.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Natural Waves service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.4s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Poker-straight-haircuts.jpg"
+                                    alt="Poker Straight Haircuts"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    90 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Poker Straight Haircuts</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Sleek and perfectly straight hair for a polished
+                                    and modern appearance.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Poker Straight Haircuts service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.5s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Top-Bun.jpg" alt="Top Bun"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    45 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Top Bun</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Chic and elegant top bun for a sophisticated and
+                                    timeless look.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Top Bun service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="service-card hair-service bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 animate-slide-up"
+                            data-gender="women"
+                            style="animation-delay: 0.6s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);">
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./assets/Images/Services/Waterfall-braide.jpg" alt="Waterfall Braid"
+                                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div
+                                    class="absolute top-4 right-4 bg-gold text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    75 mins
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">Waterfall Braid</h4>
+                                <p class="text-gray-600 mb-4 text-sm">Stunning waterfall braid creating a cascading
+                                    effect for a romantic style.</p>
+                                <button
+                                    onclick="window.open('https://wa.me/+919895223774?text=' + encodeURIComponent('Hey, I would like to avail the Waterfall Braid service'), '_blank');"
+                                    class="w-full text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                                    style="background-image: url('assets/metallicGold.jpg'); background-size: cover; background-position: center;">
+                                    Book Now
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -377,63 +932,82 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="animate-fade-in">
                     <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center mr-3">
-                            <span class="text-black font-bold text-xl">K</span>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <img src="./assets/Images/Other/logo.jpg" alt="logo"
+                                class="w-8 h-8 object-cover rounded-full">
                         </div>
-                        <h3 class="text-2xl font-bold">KENDALL</h3>
+                        <h3 class="text-2xl font-bold">HEBRON</h3>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
                         Experience the art of beauty with our professional hair styling and luxurious treatments.
                     </p>
                 </div>
-                
+
                 <div class="animate-fade-in" style="animation-delay: 0.1s;">
                     <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors duration-300">Services</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Portfolio</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Contact</a></li>
+                        <li><a href="index.html#about-section"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">About Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Services</a></li>
+                        <li><a href="gallery.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Gallery</a></li>
+                        <li><a href="index.html#contact-section"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="animate-fade-in" style="animation-delay: 0.2s;">
                     <h4 class="text-lg font-semibold mb-6">Services</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Styling</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Coloring</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Treatment</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">Makeup</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Styling</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Coloring</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Hair Treatment</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-gold transition-colors duration-300">Makeup</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="animate-fade-in" style="animation-delay: 0.3s;">
                     <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
                     <div class="space-y-3">
-                        <p class="text-gray-400">123 Beauty Street<br>New York, NY 10001</p>
-                        <p class="text-gray-400">Phone: +1 (555) 123-4567</p>
-                        <p class="text-gray-400">Email: info@kendall.com</p>
+                        <p class="text-gray-400">Pipeline Rd, Maveli Nagar, Vidya Nagar Colony,<br> Thrikkakara,
+                            Edappally, Ernakulam, Kochi, Kerala 682021</p>
+                        <p class="text-gray-400">Phone: +91 9895223774</p>
+                        <p class="text-gray-400">Email: info@HEBRON.com</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 Kendall Beauty Salon. All rights reserved.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
+                <div class="flex flex-col md:flex-row justify-between items-start">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 HEBRON Beauty Salon. All rights reserved.</p>
+                    <div class="flex space-x-8 mr-24 md:ml-16">
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"
+                            class="text-gray-400 hover:text-gold transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+                            class="text-gray-400 hover:text-gold transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-gold transition-colors duration-300">
+                        <a href="https://x.com" target="_blank" aria-label="X (Twitter)"
+                            class="text-gray-400 hover:text-gold transition-colors duration-300">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.357-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017.017"/>
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                             </svg>
                         </a>
                     </div>
@@ -441,7 +1015,39 @@
             </div>
         </div>
     </footer>
+    <!-- Fixed WhatsApp & Email Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-4 z-50">
+        <a href="https://wa.me/+919895223774" target="_blank" aria-label="WhatsApp"
+            class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition-all duration-300"
+            style="box-shadow: 0 4px 24px rgba(34,197,94,0.25);">
+            <i class="fab fa-whatsapp text-white text-2xl"></i>
+        </a>
+        <a href="mailto:info@HEBRON.com" aria-label="Email"
+            class="w-14 h-14 flex items-center justify-center rounded-full shadow-lg bg-gold hover:bg-gold-dark transition-all duration-300"
+            style="box-shadow: 0 4px 24px rgba(212,175,55,0.18);">
+            <i class="fas fa-envelope text-white text-2xl"></i>
+        </a>
+    </div>
 
     <script src="assets/main.js"></script>
+    <script>
+        // Add WhatsApp booking functionality to all service cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            serviceCards.forEach(card => {
+                const serviceName = card.querySelector('h4').textContent;
+                const bookButton = card.querySelector('.bg-gold');
+
+                if (bookButton && bookButton.textContent.trim() === 'Book Now') {
+                    bookButton.onclick = function () {
+                        const message = `Hey, I would like to avail the ${serviceName} service`;
+                        window.open(`https://wa.me/+919895223774?text=${encodeURIComponent(message)}`, '_blank');
+                    };
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

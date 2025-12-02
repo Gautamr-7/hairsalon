@@ -191,14 +191,14 @@ const scrollObserver = new IntersectionObserver((entries) => {
                 items.forEach((item, index) => {
                     setTimeout(() => {
                         item.classList.add('visible');
-                    }, index * 200);
+                    }, index * 100);
                 });
             }
         }
     });
 }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px'
 });
 
 // Observe all scroll sections
@@ -206,26 +206,34 @@ scrollSections.forEach(section => {
     scrollObserver.observe(section);
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (throttled for performance)
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.getElementById('hero-carousel');
-    const aboutSection = document.getElementById('about-section');
-    
-    // Parallax effect for hero background
-    if (heroSection) {
-        const parallaxSpeed = 0.5;
-        heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    }
-    
-    // About section overlay effect
-    if (aboutSection) {
-        const aboutOffset = aboutSection.offsetTop;
-        const windowHeight = window.innerHeight;
-        
-        if (scrolled > aboutOffset - windowHeight * 0.7) {
-            aboutSection.classList.add('visible');
-        }
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.getElementById('hero-carousel');
+            const aboutSection = document.getElementById('about-section');
+            
+            // Parallax effect for hero background (only on desktop)
+            if (heroSection && window.innerWidth >= 1024) {
+                const parallaxSpeed = 0.3;
+                heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }
+            
+            // About section overlay effect
+            if (aboutSection) {
+                const aboutOffset = aboutSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                
+                if (scrolled > aboutOffset - windowHeight * 0.7) {
+                    aboutSection.classList.add('visible');
+                }
+            }
+            
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 
@@ -233,41 +241,53 @@ window.addEventListener('scroll', () => {
 // SERVICES PAGE SPECIFIC FUNCTIONALITY
 // ============================================
 
-// Service category filtering
-const categories = document.querySelectorAll('.service-category');
+// Service gender filtering
+const genderTabs = document.querySelectorAll('.gender-tab');
 const serviceCards = document.querySelectorAll('.service-card');
 
-if (categories.length > 0 && serviceCards.length > 0) {
-    categories.forEach(category => {
-        category.addEventListener('click', () => {
-            // Update active category styling
-            categories.forEach(cat => {
-                cat.classList.remove('bg-gold');
-                cat.classList.add('bg-gray-700');
-                cat.querySelector('span').classList.remove('text-black');
-                cat.querySelector('span').classList.add('text-white');
+let currentGender = 'all';
+
+// Gender tab functionality
+if (genderTabs.length > 0) {
+    genderTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Update active gender tab styling
+            genderTabs.forEach(t => {
+                t.classList.remove('text-black');
+                t.classList.add('bg-gray-100', 'text-gray-700');
+                t.style.backgroundImage = '';
             });
             
-            category.classList.add('bg-gold');
-            category.classList.remove('bg-gray-700');
-            category.querySelector('span').classList.add('text-black');
-            category.querySelector('span').classList.remove('text-white');
+            tab.classList.remove('bg-gray-100', 'text-gray-700');
+            tab.classList.add('text-black');
+            tab.style.backgroundImage = "url('assets/metallicGold.jpg')";
+            tab.style.backgroundSize = 'cover';
+            tab.style.backgroundPosition = 'center';
             
-            // Show/hide services based on category
-            const selectedCategory = category.dataset.category;
-            serviceCards.forEach(card => {
-                if (card.classList.contains(selectedCategory + '-service')) {
-                    card.classList.remove('hidden');
-                    card.style.animationDelay = '0.1s';
-                    card.classList.add('animate-slide-up');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+            currentGender = tab.dataset.gender;
+            filterServices();
         });
     });
+}
 
-    // Add hover effects to service cards
+// Filter function
+function filterServices() {
+    serviceCards.forEach(card => {
+        const cardGender = card.dataset.gender;
+        const genderMatch = currentGender === 'all' || cardGender === currentGender || cardGender === 'all';
+        
+        if (genderMatch) {
+            card.classList.remove('hidden');
+            card.style.animationDelay = '0.1s';
+            card.classList.add('animate-slide-up');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// Add hover effects to service cards
+if (serviceCards.length > 0) {
     serviceCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.classList.add('transform', 'scale-105');
@@ -301,4 +321,52 @@ document.querySelectorAll('.animate-slide-in-left, .animate-slide-in-right, .ani
 // Initialize all carousels and features when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeGalleryCarousel();
+    initializeHorizontalGallery();
 });
+
+// Horizontal scrolling gallery functionality
+function initializeHorizontalGallery() {
+    const galleryScroll = document.getElementById('galleryScroll');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
+
+    if (!galleryScroll || !scrollLeftBtn || !scrollRightBtn) return;
+
+    scrollLeftBtn.addEventListener('click', () => {
+        galleryScroll.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+        galleryScroll.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+
+    // Auto-scroll functionality (optional)
+    let autoScrollInterval = setInterval(() => {
+        if (galleryScroll.scrollLeft >= galleryScroll.scrollWidth - galleryScroll.clientWidth) {
+            galleryScroll.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            galleryScroll.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    }, 4000);
+
+    // Pause auto-scroll on hover
+    galleryScroll.addEventListener('mouseenter', () => {
+        clearInterval(autoScrollInterval);
+    });
+
+    galleryScroll.addEventListener('mouseleave', () => {
+        autoScrollInterval = setInterval(() => {
+            if (galleryScroll.scrollLeft >= galleryScroll.scrollWidth - galleryScroll.clientWidth) {
+                galleryScroll.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                galleryScroll.scrollBy({ left: 300, behavior: 'smooth' });
+            }
+        }, 4000);
+    });
+}
